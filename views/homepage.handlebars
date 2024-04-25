@@ -1,26 +1,12 @@
-{{#each users as |user| }}
-<div class="VACANCY 1"></div>,"row align-center mb-5"
+{{#each roles as |role| }}
+<div class="VACANCY"></div>,"row align-center mb-5"
   <div class="col-md-6">
-    <h2>{{{Job title}}} {{Company: Tech Hive LTD}}</h2>
-      <p>Location: Amsterdam, The Netherlands</p>
-      <p>Description: Currently looking for a looking for a Full-Stack Developer with a strong background & practical experience to join our team. </p>
-      <p><a href="#Apply now"></a></p>
-  </div>
-
-      <div class="VACANCY 2"></div>,"row align-center mb-5"
-  <div class="col-md-6">
-    <h2>{{{Job title}}} {{Company: Tech Hive LTD}}</h2>
-      <p>Location: Hamburg, Germany</p>
-      <p>Description: We would looking for a strong Software developer with a creative mind. </p>
-      <p><a href="#Apply now"></a></p>
-  </div>
-
-  <div class="VACANCY 3"></div>,"row align-center mb-5"
-  <div class="col-md-6">
-    <h2>{{{Job title}}} {{Company: Tech Hive LTD}}</h2>
-      <p>Location: Hong Kong, China</p>
-      <p>Description: Looking for building a career as a Back -End support?</p>
-      <p><a href="#Apply now"></a></p>
+    <h2>{{role_name}}</h2>
+      <p>{{company}}</p>
+      <p>{{job_type}}</p>
+      <p>{{salary}}</p>
+      <p>{{location}}</p>
+     <p><a href="#Apply now"></a></p>
   </div>
 {{/each}}
 
