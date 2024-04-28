@@ -24,10 +24,6 @@ Role.init(
         isFloat: true,            // checks for valid floating point numbers
       }
     },
-    location: {
-      type: DataTypes.STRING,
-      allowNull:false
-    },
     company: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -43,7 +39,7 @@ Role.init(
     location_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'Location', // References the Location model
+        model: 'location', // References the Location model
         key: 'id'
       }
     },
