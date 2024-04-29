@@ -1,55 +1,145 @@
 const router = require('express').Router();
+const { Location, User, Category, Role, Tag, Application, SavedRole} = require('../models');
+const withAuth = require('../utils/auth');
 
-const roles = [
-    {
-      role_name: 'Developer',
-      company: 'Google',
-      location: 'London',
-      job_type: 'Full-time',
-      salary: '£40,000 - £50,000 per annum',
-    },
-    {
-      role_name: 'Software Engineer',
-      company: 'Amazon',
-      location: 'Manchester',
-      job_type: 'Full-time',
-      salary: '£96,000 - £120,000 per annum',
-    },
-    {
-      role_name: 'Product Manager',
-      company: 'Apple',
-      location: 'Bristol',
-      job_type: 'Contract',
-      salary: '£104,000 - £128,000 per annum',
-    },
-    {
-      role_name: 'UX/UI Designer',
-      company: 'Facebook',
-      location: 'Edinburgh',
-      job_type: 'Part-time',
-      salary: '£48,000 - £60,000 per annum',
-    },
-    {
-      role_name: 'Cybersecurity Analyst',
-      company: 'IBM',
-      location: 'Glasgow',
-      job_type: 'Full-time',
-      salary: '£64,000 - £80,000 per annum',
-    },
-];
-const location = ['London', 'New York City', 'Cupertino', 'San Francisco', 'Chicago'];
-
-const job_type = ['Full-time', 'Part-time', 'Contract'];
-
-const salary = ['£40,000 - £60,000 per annum', '£60,000 - £80,000 per annum', '£80,000 - £100,000 per annum', '£100,000 - £120,000 per annum', '£120,000 - £140,000 per annum'];
-
+// homepage [route for showing list of featured jobs - as soon as you load the page]
 router.get('/', async (req, res) => {
-  res.render('all', { roles, location, job_type, salary }); 
-});
+    try {
+        const roleData = Role.findAll({
+            include: [
+                {
+                    model: Location,
+                    attributes: ['location_name']
+                }
+            ]
+        })
 
-router.get('/role/:num', (req, res) => {
-  const randomIndex = Math.floor(Math.random() * roles.length);
-  const featurejob = roles[randomIndex];
-  res.render('role', {featurejob});
-});
+        // shuffles the array to get random role records
+        const shuffledRoles = roleData.sort(() => Math.random() - 0.5); //this line sorts the array randomly by using a comparator functin that generates random positive or negative values.
+
+        // gets 8 random roles objects and puts them in an array called:
+        const randomRoles = shuffledRoles.slice(0, 8);
+
+        // Serializes data so the template can read it
+        const featuredRoles = randomRoles.map((project) => project.get({plain:true}))
+
+        // Passes serialized data and session flag into template
+        res.render('homepage', {
+            featuredRoles,      // featuredRoles = featuredRoles: [{role1}, {role2}, {role3}...]
+            logged_in: req.session.logged_in
+        })
+    } catch(err){
+        res.status(500).json(err)
+    }
+})
+
+
+// individual role page [route for showing one role that was clicked on]
+router.get('/role/:id', async (req,res) => {
+    try {
+        const roleData = await Role.findByPk(req.params.id, {
+            include: [
+                {
+                    model: Location,
+                    attributes: ['location_name']
+                }
+            ]
+        })
+
+        if(!roleData) {
+            return res.status(404).json({message: 'no application found with this Id'})
+        }
+
+        const role = roleData.get({ plain: true });
+
+        res.render('role', {  //***
+            role,   // role = role: {role row}   
+            logged_in: req.session.logged_in
+        })
+    } catch(err){
+        res.status(500).json(err)
+    }
+})
+
+
+// profile page [route for getting current session's user's user record and their associated savedRoles and Applications to display on their profile page]
+router.get('/profile', withAuth, async (req, res) =>{
+    try {
+        // Find the logged in user based on the session ID
+        const userData = await User.findByPk(req.session.user_id, {
+            attributes: { exclude: ['password'] },
+            include: [
+                { model: Role,
+                  as: 'SavedRoles',     //includes an array of all the SavedRole records associated with this user under an alias "SavedRoles"
+                  include: [Role] },    // includes the Role record associated with each Application record in the AppliedRoles array
+                { model: Role,
+                  as: 'AppliedRoles',   //includes an array of all the Application records associated with this user under an alias "AppliedRoles"
+                  include: [Role] }     // includes the Role record associated with each Application record in the AppliedRoles array
+            ]
+        })
+
+        const user = userData.get({ plain: true });
+
+        res.render('profile', {
+            user,     // user = user: {user row}
+            logged_in: true
+        })
+    } catch(err){
+        res.status(500).json(err)
+    }
+})
+
+
+// application page [route for when you click 'apply' on a job it allows you to personalise the form by including the name of the role you're applying for (clicked on)]
+router.get('/application/:id', withAuth, async (req, res) => {
+    try {
+        const roleData = await Role.findByPk(req.params.id, {
+            include: [
+                {
+                    model: Location,
+                    attributes: ['location_name']
+                }
+            ]
+        })
+
+        if(!roleData) {
+            return res.status(404).json({message: 'no application found with this Id'})
+        }
+
+        // converts this sequalize model instance into a plain javascript object (removes metadata)
+        const role = roleData.get({ plain: true });
+
+        res.render('application', {  //***
+          role,   // role = role: {role row}
+          logged_in: true,
+        })
+    } catch(err){
+        res.status(500).json(err)
+    }
+})
+
+// login page [route for if the user is already loggedin, redirect the request to another route]
+router.get('/login', (req, res) => {
+    if (req.session.logged_in) {
+        res.redirect('/profile')
+        return
+    }
+    //else if youre not logged in it shows you the login page:
+    res.render('login')
+})
+
+
+// signup page [route for if the user is already signedup (loggedin), redirect the request to another route]
+router.get('/signup', (req, res) => {
+    if (req.session.logged_in) {
+        res.redirect('/profile')
+        return
+    }
+    //else if youre not logged in it shows you the signup page:
+    res.render('signup')//***
+})
+
+
 module.exports = router;
+
+
