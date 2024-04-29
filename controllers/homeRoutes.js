@@ -71,10 +71,10 @@ router.get('/profile', withAuth, async (req, res) =>{
             include: [
                 { model: Role,
                   as: 'SavedRoles',     //includes an array of all the SavedRole records associated with this user under an alias "SavedRoles"
-                  include: [Role] },    // includes the Role record associated with each Application record in the AppliedRoles array
+                  include: [{model: Role}] },    // includes the Role record associated with each Application record in the AppliedRoles array
                 { model: Role,
                   as: 'AppliedRoles',   //includes an array of all the Application records associated with this user under an alias "AppliedRoles"
-                  include: [Role] }     // includes the Role record associated with each Application record in the AppliedRoles array
+                  include: [{model: Role}] }     // includes the Role record associated with each Application record in the AppliedRoles array
             ]
         })
 
