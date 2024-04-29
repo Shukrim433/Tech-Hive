@@ -4,32 +4,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tech Hive</title>
-  <link rel="stylesheet" href="/css/jass.css">
+  <title>TECH HIVE</title>
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-  <header class="display-flex justify-space-between align-center p-2">
-    <h1>
-      Tech Hive
-    </h1>
-    {{#if logged_in}}
-    <nav>
-      <button class="btn" id="logout">Logout</button>
-    </nav>
-    {{/if}}
-  </header>
-  <main class="container container-fluid mt-5">
-    {{{ body }}}
-  </main>
-  <footer>
-      
-  </footer>
 
+  <div class="flex-column justify-space-around">
+
+    <header class="display-flex justify-space-between align-center p-2">
+      <h1>
+        <span><img src="PUT LOGO PATH HERE***" alt="Logo"></span>
+        <a href="/">TECH HIVE</a>
+      </h1>
+      <nav>
+        <!--if youre logged in you see: "profile | logout"  - in the nav bar -->
+        {{#if logged_in}}
+        <a href="/profile">Profile</a> | 
+        <button id="logout">Logout</button>
+        {{else}}
+        <!--if youre logged out you just see:  "login"  - in the nav bar-->
+        <a href="/login">Login</a>
+        {{/if}}
+      </nav>
+    </header>
+
+    <main>
+      {{{ body }}}
+    </main>
+
+    <footer>
+       <h2>
+        <span><img src="PUT LOGO PATH HERE***" alt="Logo"></span>
+        <a href="/">TECH HIVE</a>
+      </h2>
+      <div>
+        <a>techhive@email.com</a> |
+        <a>0121111111</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Render logout button script for logged in users only -->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
 </body>
 
 </html>
-
