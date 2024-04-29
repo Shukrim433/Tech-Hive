@@ -18,12 +18,12 @@
         <a href="/">TECH HIVE</a>
       </h1>
       <nav>
-        <!--if youre logged in you see: "profile | logout"  - in the nav bar -->
+        <!--if youre logged in you see: "profile | logout" - in the nav bar -->
         {{#if logged_in}}
-        <a href="/profile">Profile</a> | 
+        <a href="/profile">Profile</a> 
         <button id="logout">Logout</button>
         {{else}}
-        <!--if youre logged out you just see:  "login"  - in the nav bar-->
+        <!--if youre logged out you just see:  "login" - in the nav bar-->
         <a href="/login">Login</a>
         {{/if}}
       </nav>
