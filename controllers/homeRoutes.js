@@ -47,7 +47,7 @@ router.get('/role/:id', async (req,res) => {
         })
 
         if(!roleData) {
-            return res.status(404).json({message: 'no application found with this Id'})
+            return res.status(404).json({message: 'No role found with this Id'})
         }
 
         const role = roleData.get({ plain: true });
@@ -103,7 +103,7 @@ router.get('/application/:id', withAuth, async (req, res) => {
         })
 
         if(!roleData) {
-            return res.status(404).json({message: 'no application found with this Id'})
+            return res.status(404).json({message: 'No application found with this Id'})
         }
 
         // converts this sequalize model instance into a plain javascript object (removes metadata)

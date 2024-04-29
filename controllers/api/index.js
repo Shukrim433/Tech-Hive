@@ -3,7 +3,6 @@ const router = require('express').Router();
 const userRoutes = require('./userRoutes');
 const applicationRoutes = require('./applicationRoutes')
 const savedRoleRoutes = require('./savedRoleRoutes')
-const projectRoutes = require('./projectRoutes');
 const categoryRoutes = require('./categoryRoutes');
 const roleRoutes = require('./roleRoutes');
 const tagRoutes = require('./tagRoutes');
@@ -13,7 +12,6 @@ const tagRoutes = require('./tagRoutes');
 router.use('/users', userRoutes);
 router.use('/application', applicationRoutes);
 router.use('/save-role', savedRoleRoutes);
-router.use('/projects', projectRoutes);
 router.use('/categories', categoryRoutes);
 router.use('/roles', roleRoutes);
 router.use('/tags', tagRoutes);
