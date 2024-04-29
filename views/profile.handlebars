@@ -3,11 +3,11 @@
     <p>{{user.email}}</p>
 </div>
 
-<div class="profile-container">
+<div class="applied-role-list">
     <h2>Your Applied Jobs: </h2>
     {{#if user.AppliedRoles.length}}
     {{#each user.AppliedRoles as |AppliedRole|}}
-    <div class="profile-card">
+    <div class="role-card">
         <h4><a href="/role/{{AppliedRole.role.id}}">{{AppliedRole.role.role_name}}</a></h4>           
         <p>{{AppliedRole.role.company}}</p>
         <p>{{AppliedRole.role.salary}}</p>
@@ -20,16 +20,16 @@
     {{/if}}
 </div>
 
-<div class="profile-container">
+<div class="saved-role-list">
     <h2>Your Saved Jobs: </h2>
     {{#if user.SavedRoles.length}}
     {{#each user.SavedRoles as |SavedRole|}}
-    <div class="profile-card">
+    <div class="role-card">
         <h4><a href="/role/{{SavedRole.role.id}}">{{SavedRole.role.role_name}}</a></h4>
         <p>{{SavedRole.role.company}}</p>
         <p>{{SavedRole.role.salary}}</p>
         <p>{{SavedRole.role.job_type}}</p>
-        <button class="button" data-id="{{SavedRole.id}}">Delete Saved Job</button>
+        <button class="button" data-id="{{SavedRole.id}}">Delete Saved job</button>
     </div>
     {{else}}
     <p>You currently do not have any saved jobs.</p>
