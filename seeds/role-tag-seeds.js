@@ -49,7 +49,7 @@ const roleTagData = [
         role_id: 12,
         tag_ids: [5, 9] 
       },
-      {
+      /*{
         role_id: 13,
         tag_ids: [11, 7] 
       },
@@ -120,7 +120,7 @@ const roleTagData = [
       {
         role_id: 30,
         tag_ids: [3, 9, 10] 
-      }
+      }*/
 ]
 
 const seedRoleTags = () => RoleTag.bulkCreate(roleTagData);

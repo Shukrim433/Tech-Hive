@@ -25,7 +25,6 @@ Application.init(
     email: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true,
         validate: {
             isEmail: true,
         },
@@ -33,7 +32,6 @@ Application.init(
     phone_number: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        unique: true,
     },
     cv_link: {
         type: DataTypes.STRING,
