@@ -1,4 +1,4 @@
-const router = require("express").Router();
+/*const router = require("express").Router();
 const { Role, Category, Tag, RoleTag } = require("../../models");
 
 // The `/api/roles` endpoint
@@ -132,3 +132,4 @@ router.delete("/:id", async (req, res) => {
 });
 
 module.exports = router;
+*/

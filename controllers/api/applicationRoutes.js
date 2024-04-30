@@ -16,8 +16,7 @@ router.post('/', withAuth, async (req,res) => {
             phone_number: req.body.phone_number,
             cv_link: req.body.cv_link,
             role_id: req.body.role_id,
-            user_id: req.body.user_id,
-            userId: req.session.userId,   // current session user's id
+            user_id: req.session.userId,   // passes in the user_id column of the application table to the current session user's id
         })
         res.status(200).json(applicationData)
     } catch(err){

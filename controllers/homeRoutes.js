@@ -1,16 +1,15 @@
 const router = require('express').Router();
-const { Location, User, Category, Role, Tag, Application, SavedRole} = require('../models');
+const { Location, User, Category, Role, Tag, Application, SavedRole, RoleTag} = require('../models');
 const withAuth = require('../utils/auth');
 
 // homepage [route for showing list of featured jobs - as soon as you load the page]
 router.get('/', async (req, res) => {
     try {
-        const roleData = Role.findAll({
+        const roleData = await Role.findAll({
             include: [
-                {
-                    model: Location,
-                    attributes: ['location_name']
-                }
+                {model: Location},
+                {model: Category},
+                {model: Tag, through: RoleTag}
             ]
         })
 
@@ -24,6 +23,8 @@ router.get('/', async (req, res) => {
         const featuredRoles = randomRoles.map((project) => project.get({plain:true}))
 
         // Passes serialized data and session flag into template
+        //res.status(200).json(featuredRoles)
+        
         res.render('homepage', {
             featuredRoles,      // featuredRoles = featuredRoles: [{role1}, {role2}, {role3}...]
             logged_in: req.session.logged_in
@@ -51,7 +52,9 @@ router.get('/role/:id', async (req,res) => {
         }
 
         const role = roleData.get({ plain: true });
-
+       
+       // res.status(200).json(role)
+       
         res.render('role', {  //***
             role,   // role = role: {role row}   
             logged_in: req.session.logged_in
@@ -61,12 +64,39 @@ router.get('/role/:id', async (req,res) => {
     }
 })
 
+// search result page [route for what user clicks 'search' button on the homepage to get a list of jobs on the search result page that match their search]
+/*router.get('/search-results', async(req, res) => {
+    try {
+        const searchedWords = req.query.searchedWords  //includes words in the role name and words in the roles associated tags
+        const selectedLocation = req.query.selectedLocation
+        const selectedCategory = req.query.selectedCategory
+
+        const roleData = await Role.findAll({
+            include: [
+                {model: Location, where: {location_name: { [Op.iLike] }}},
+                {model: Category},
+                {model: Tag, through: RoleTag}
+            ],
+            where: {
+                role_name: { [Op.iLike]: `%${searchedWords}%`  },
+                location.location_name: { [Op.iLike]: `${selectedLocation}`  },
+                category.category_name: { [Op.ilike]: `${selectedCategory}` },
+                tags: { [Op.contains]: [`${searchedWords}`] },
+
+            }
+        })
+    } catch(err) {
+
+    }
+})
+*/
+
 
 // profile page [route for getting current session's user's user record and their associated savedRoles and Applications to display on their profile page]
 router.get('/profile', withAuth, async (req, res) =>{
     try {
         // Find the logged in user based on the session ID
-        const userData = await User.findByPk(req.session.user_id, {
+        const userData = await User.findByPk(req.session.userId, {
             attributes: { exclude: ['password'] },
             include: [
                 { model: Role,
@@ -79,7 +109,6 @@ router.get('/profile', withAuth, async (req, res) =>{
         })
 
         const user = userData.get({ plain: true });
-
         res.render('profile', {
             user,     // user = user: {user row}
             logged_in: true
