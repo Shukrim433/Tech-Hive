@@ -15,7 +15,9 @@ router.post('/signup', async (req, res) => {
       res.status(200).json(userData)
     })
   } catch(err) {
-    res.status(400).json(err)   // 400 = bad request from the user, ie if theyre signing up and they dont enter an email
+    console.log(err)
+    res.status(400).json(err)
+      // 400 = bad request from the user, ie if theyre signing up and they dont enter an email
   }
 })
 
