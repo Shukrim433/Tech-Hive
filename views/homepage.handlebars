@@ -1,14 +1,54 @@
-{{#each roles as |role| }}
-<div class="VACANCY"></div>,"row align-center mb-5"
-  <div class="col-md-6">
-    <h2>{{role_name}}</h2>
-      <p>{{company}}</p>
-      <p>{{job_type}}</p>
-      <p>{{salary}}</p>
-      <p>{{location}}</p>
-     <p><a href="#Apply now"></a></p>
+<div class="search-div">
+  
+  <input id="query-input" placeholder="e.g. Full time software engineer"></input>
+  
+  <select id="location-select" name="locations">  <!--should we change these to text inputs?-->
+    <option value="">Location</option>
+    <option value="New York">New York</option>
+    <option value="San Francisco">San Francisco</option>
+    <option value="Los Angeles">Los Angeles</option>
+    <option value="London">London</option>
+    <option value="Paris">Paris</option>
+    <option value="Berlin">Berlin</option>
+    <option value="Manchester">Manchester</option>
+    <option value="Amsterdam">Amsterdam</option>
+    <option value="Madrid">Madrid</option>
+    <option value="Barcelona">Barcelona</option>
+    <option value="Dublin">Dublin</option>
+    <option value="Edinburgh">Edinburgh</option>
+    <option value="Rome">Rome</option>
+  </select>
+
+  <select id="category-select" name="categories">
+    <option value="">Category</option>
+    <option value="Software Development">Software Development</option>
+    <option value="Data Analysis">Data Analysis</option>
+    <option value="Design">Design</option>
+    <option value="Cloud Computing">Cloud Computing</option>
+    <option value="Network Engineering">Network Engineering</option>
+    <option value="DevOps">DevOps</option>
+    <option value="Machine Learning">Machine Learning</option>
+    <option value="Cybersecurity">Cybersecurity</option>
+    <option value="Database Administration">Database Administration</option>
+    <option value="Product Management">Product Management</option>
+    <option value="IT Support">IT Support</option>
+  </select>
+
+</div>
+
+<div id="featured-roles-container">
+  <h2>Featured Jobs:</h2>
+  <div id="featured-roles-card">
+    {{#each featuredRoles as |featuredRole|}}
+    <div class="featured-role-card">
+      <a href="/role/{{featuredRole.id}}">{{featuredRole.role_name}}</a>
+      <p>{{featuredRole.company}}</p>
+      <p>£{{featuredRole.salary}}</p>
+      <p>{{featuredRole.job_type}}</p>
+      <p>{{featuredRole.location.location_name}}</p>
+    </div>
+    {{/each}}
   </div>
-{{/each}}
+</div>
 
-
-
+<script src="../public/js/homepage.js"></script>

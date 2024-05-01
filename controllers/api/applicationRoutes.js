@@ -6,7 +6,7 @@ const withAuth = require('../../utils/auth');
 const { Application } = require('../../models');
 
 // send application buttons  [routes for when user clicks send application on an application form and as a result a fetch POST request will be made to this route with the req.body being the details entered into the form AND the user_id and role_id for the foreign keys of the application model]
-// /api/application
+// /api/application/
 router.post('/', withAuth, async (req,res) => {
     try {
         const applicationData = await Application.create({
