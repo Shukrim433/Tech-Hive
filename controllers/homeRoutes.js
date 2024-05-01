@@ -43,7 +43,8 @@ router.get('/role/:id', async (req,res) => {
                 {
                     model: Location,
                     attributes: ['location_name']
-                }
+                },
+                {model: Category},
             ]
         })
 
@@ -52,8 +53,7 @@ router.get('/role/:id', async (req,res) => {
         }
 
         const role = roleData.get({ plain: true });
-       
-       // res.status(200).json(role)
+       //res.status(200).json(role)
        
         res.render('role', {  //***
             role,   // role = role: {role row}   
@@ -101,7 +101,7 @@ router.get('/profile', withAuth, async (req, res) =>{
             include: [
                 { model: Role,
                   as: 'SavedRoles',     //includes an array of all the SavedRole records associated with this user under an alias "SavedRoles"
-                  include: [{model: Role}] },    // includes the Role record associated with each Application record in the AppliedRoles array
+                  include: [{model: Role}] },    // includes the Role record associated with each SavedRole record in the SavedRoles array
                 { model: Role,
                   as: 'AppliedRoles',   //includes an array of all the Application records associated with this user under an alias "AppliedRoles"
                   include: [{model: Role}] }     // includes the Role record associated with each Application record in the AppliedRoles array
@@ -138,6 +138,13 @@ router.get('/application/:id', withAuth, async (req, res) => {
         // converts this sequalize model instance into a plain javascript object (removes metadata)
         const role = roleData.get({ plain: true });
 
+        // If the user is already not logged in, redirect the request to the login page ****
+        if (!req.session.logged_in) {
+            res.redirect('/login');
+            return;
+        }
+
+        //else show them the application page
         res.render('application', {  //***
           role,   // role = role: {role row}
           logged_in: true,

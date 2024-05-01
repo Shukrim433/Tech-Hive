@@ -9,8 +9,8 @@ router.post('/save-role', withAuth, async (req,res) => {
     try {
         const savedRoleData = await SavedRole.create({
             role_id: req.body.role_id,
-            user_id: req.body.user_id,
-            userId: req.session.userId,   // current session user's id
+            user_id: req.body.userId
+            //userId: req.session.userId,   // current session user's id
         })
         res.status(200).json(savedRoleData)
     } catch(err){
