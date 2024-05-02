@@ -52,11 +52,10 @@ router.post('/login', async (req, res) => {
   }
 })
 
-
 // logout button [route for when the user clicks 'logout' and the session object that was created for them when they logged/signed in is destroyed]
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
-    res.session.destroy(() => {
+    req.session.destroy(() => {
       res.status(204).end()          // 204 = "No Content." It means that the server has successfully processed the request and is not returning any content in the response body. 
     })
   } else {
