@@ -5,45 +5,54 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TECH HIVE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+
   <link rel="stylesheet" href="/css/style.css">
+<script src="https://kit.fontawesome.com/b4a38bdb36.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 
-  <div class="flex-column justify-space-around">
+<header class="site-header">
+    <nav class="header-nav">
+         <a href="/">Find Work</a>
+        <a href="/role">Role</a>
+        <a href="/profile">Profile</a>
+        <a href="/application">Application</a>
+    </nav>
+    <a href="/" class="logo-link">
+        <img src="/images/logo1.png" alt="Logo" class="header-logo">
+    </a>
+    <div class="auth-buttons">
+        <button class="login-button" onclick="location.href='/login';">Login</button>
+        <button class="login-button" onclick="location.href='/signup';">Sign Up</button>
+    </div>
+</header>
 
-    <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-      <!--  <span><img src="PUT LOGO PATH HERE***" alt="Logo"></span> -->
-        <a href="/">TECH HIVE</a>
-      </h1>
-      <nav>
-        <!--if youre logged in you see: "profile | logout" - in the nav bar -->
-        {{#if logged_in}}
-        <a href="/profile">Profile</a> 
-        <button id="logout">Logout</button>
-        {{else}}
-        <!--if youre logged out you just see:  "login" - in the nav bar-->
-        <a href="/login">Login</a>
-        {{/if}}
-      </nav>
-    </header>
 
     <main>
       {{{ body }}}
     </main>
 
-    <footer>
-       <h2>
-       <!-- <span><img src="PUT LOGO PATH HERE***" alt="Logo"></span> -->
-        <a href="/">TECH HIVE</a>
-      </h2>
-      <div>
-        <a>techhive@email.com</a> |
-        <a>0121111111</a>
-      </div>
-    </footer>
-  </div>
+<footer class="site-footer">
+    <div class="footer-content">
+        <img src="images/logo2.png" alt="Footer logo" class="footer-logo">
+        <div class="icon-container">
+            <a href="https://facebook.com" target="_blank"><i class="fa fa-facebook-f"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fa fa-instagram"></i></a>
+            <a href="https://linkedin.com" target="_blank"><i class="fa fa-linkedin"></i></a>
+            <a href="https://github.com" target="_blank"><i class="fa fa-github"></i></a>
+        </div>
+    </div>
+     <div class="footer-bottom">
+        <p>Copyright © 2024 All Rights Reserved</p>
+    </div>
+</footer>
+
 
   <!-- Render logout button script for logged in users only -->
   {{#if logged_in}}
