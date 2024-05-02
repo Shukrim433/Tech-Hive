@@ -1,0 +1,15 @@
+<div class="selected-role-container">
+    <div class="selected-role-card">
+        <a href="/role/{{role.id}}">{{role.role_name}}</a> 
+        <p>{{role.company}}</p>
+        <p>£{{role.salary}} per annum</p>
+        <p>{{role.job_type}}</p>
+        <p>{{role.location.location_name}}</p>
+        <p>{{role.category.category_name}}</p>
+        <p>{{role.description}}</p>
+        <a href="/api/application/{{role.id}}"><button class="applybtn button">Apply Now</button></a>
+        <button class="savebtn button" data-role-id="{{role.id}}">Save Job</button>  <!--add javascript functionality so that when they click save the button changes to 'saved'-->
+    </div>
+</div>
+
+<script src="/js/role.js"></script>
