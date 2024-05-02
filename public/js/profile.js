@@ -1,8 +1,8 @@
-  const delButtonHandler = async (event) => {
-    if (event.target.hasAttribute('role-id')) {
-      const id = event.target.getAttribute('role-id');
+  const deleteSavedRole = async (event) => {
+    if (event.target.hasAttribute('data-id')) {
+      const id = event.target.getAttribute('data-id');
   
-      const response = await fetch(`/api/roles/${id}`, {
+      const response = await fetch(`/api/savedRole/${id}`, {
         method: 'DELETE',
       });
   
@@ -14,11 +14,29 @@
     }
   }; 
   
+  const deleteAppliedRole = async (event) => {
+    if (event.target.hasAttribute('data-id')) {
+      const id = event.target.getAttribute('data-id');
+  
+      const response = await fetch(`/api/application/${id}`, {
+        method: 'DELETE',
+      });
+  
+      if (response.ok) {
+        document.location.replace('/profile');
+      } else {
+        alert('Failed to delete role');
+      }
+    }
+  }; 
+  
+
+
   document
-    .querySelector('.applied-role-list')
-    .addEventListener('click', delButtonHandler);
+    .querySelector('.saved-role-list')
+    .addEventListener('click', deleteSavedRole);
  
   document
-  .querySelector('.saved-role-list')
-  .addEventListener('click', delButtonHandler);
+  .querySelector('.applied-role-list')
+  .addEventListener('click', deleteAppliedRole);
   

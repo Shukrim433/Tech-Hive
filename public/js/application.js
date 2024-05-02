@@ -1,38 +1,32 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.querySelector('.application-form');
-    
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
+const sendApplicationHandler = async (event) => {
+    event.preventDefault();
+  
+    // Collect values from the login form
+    const email = document.querySelector('#email-application').value.trim();
+    const first_name = document.querySelector('#first-name-application').value.trim();
+    const last_name = document.querySelector('#last-name-application').value.trim();
+    const phone_number = document.querySelector('#phone-number-application').value.trim();
+    const cv_link = document.querySelector('#cv-application').value.trim();
 
-        // Gather the data from the form fields
-        const formData = {
-            firstName: document.getElementById('first-name-application').value,
-            lastName: document.getElementById('last-name-application').value,
-            email: document.getElementById('email-application').value,
-            phoneNumber: document.getElementById('phone-number-application').value,
-            cvLink: document.getElementById('cv-application').value,
-            roleId: this.querySelector('button[type="submit"]').getAttribute('data-id') // Assuming role ID is stored in the submit button's data-id attribute
-        };
+    if (event.target.hasAttribute('data-id') && email && first_name && last_name && phone_number && cv_link) {
+      
+      const role_id = event.target.getAttribute('data-id');
 
-        // Log the collected data 
-        console.log(formData);
+      const response = await fetch('/api/application/', {
+        method: 'POST',
+        body: JSON.stringify({role_id, email, first_name, last_name, phone_number, cv_link }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+  
+      if (response.ok) {
+        // redirects the browser to the home page if application is sent (application record is created) successfully
+        document.location.replace('/');
+      } else {
+        alert(response.statusText);
+      }
+    }
+  };
 
-        // Example: Send the data to a server using fetch API
-        fetch('/api/applications', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Success:', data);
-            alert('Application submitted successfully!');
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-            alert('Failed to submit application.');
-        });
-    });
-});
+  document
+    .querySelector('.application-form')
+    .addEventListener('submit', sendApplicationHandler);

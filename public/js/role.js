@@ -1,32 +1,59 @@
-const roleApplicationHandler = (event) => {
-    const id = event.target.getAttribute('role-id');
-    window.location.href = `/api/application/${id}`;
-};
-
-const saveJob = async (event) => {
-
-    const id = event.target.getAttribute('role.id');
+const saveBtnHandler = async (event) => {
     
-    if (id) {
-        const response = await fetch(`/api/roles/${id}`, {
-            method: 'POST',
-            body: JSON.stringify({ id }),
-            headers: { 'Content-Type': 'application/json' },
+  
+    if (event.target.hasAttribute('data-id')) {      //if the thing clicked has the "data-id" attribute then ..:
+        
+        const role_id = event.target.getAttribute('data-id');
+    
+        const response = await fetch(`/api/savedRole/`, {
+        method: 'POST',
+        body: JSON.stringify({ role_id }),
+        headers: { 'Content-Type': 'application/json' },
         });
-
+        console.log(response)
+    
         if (response.ok) {
-            document.location.replace('/profile');
-          } else {
-            alert('Failed to create new post');
-          }
+             // changes the button text to 'Saved'
+             event.target.textContent = 'Saved';
+             // disables the button after saving
+             event.target.disabled = true;
+        } else {
+        alert('Failed to save role');
         }
-}
+    }
 
+  
+  };
+  /*const SendApplicationBtnHandler = async (event) => {
+    
+  
+    if (event.target.hasAttribute('data-id')) {      //if the thing clicked has the "data-id" attribute then ..:
+        
+        const role_id = event.target.getAttribute('data-id');
+    
+        const response = await fetch(`/api/application/`, {
+        method: 'POST',
+        body: JSON.stringify({ role_id }),
+        headers: { 'Content-Type': 'application/json' },
+        });
+        console.log(response)
+    
+        if (response.ok) {
+             // changes the button text to 'Saved'
+             event.target.textContent = 'Saved';
+             // disables the button after saving
+             event.target.disabled = true;
+        } else {
+        alert('Failed to save role');
+        }
+    }
+  
+  };
+                                                  <-- this commented out section should be in theapplication.js i think
+  document
+    .querySelector('.selected-role-card')
+    .addEventListener('click', saveBtnHandler);*/
 
-document.querySelectorAll('.applybtn').forEach(button => {
-    button.addEventListener('click', roleApplicationHandler);
-});
-
-document.querySelectorAll('.savebtn').forEach(button => {
-    button.addEventListener('click', saveJob);
-});
+  document
+    .querySelector('.selected-role-card')
+    .addEventListener('click', saveBtnHandler);

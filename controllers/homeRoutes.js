@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Location, User, Category, Role, Tag, Application, SavedRole, RoleTag} = require('../models');
 const withAuth = require('../utils/auth');
+const { Op } = require('sequelize');
 
 // homepage [route for showing list of featured jobs - as soon as you load the page]
 router.get('/', async (req, res) => {
@@ -65,31 +66,62 @@ router.get('/role/:id', async (req,res) => {
 })
 
 // search result page [route for what user clicks 'search' button on the homepage to get a list of jobs on the search result page that match their search]
-/*router.get('/search-results', async(req, res) => {
+router.get('/search-results', async(req, res) => {
     try {
-        const searchedWords = req.query.searchedWords  //includes words in the role name and words in the roles associated tags
-        const selectedLocation = req.query.selectedLocation
-        const selectedCategory = req.query.selectedCategory
+        const query = {
+            where: {},
+            include: [{model: Location}, {model: Category}]
+        }
+        const keywords = req.query.keywords
+        const location = req.query.location
+        const category = req.query.category
+        
 
-        const roleData = await Role.findAll({
-            include: [
-                {model: Location, where: {location_name: { [Op.iLike] }}},
-                {model: Category},
-                {model: Tag, through: RoleTag}
-            ],
-            where: {
-                role_name: { [Op.iLike]: `%${searchedWords}%`  },
-                location.location_name: { [Op.iLike]: `${selectedLocation}`  },
-                category.category_name: { [Op.ilike]: `${selectedCategory}` },
-                tags: { [Op.contains]: [`${searchedWords}`] },
+        if(keywords) {
+            query.where = {
+               [Op.or]: [
+                    {role_name: { [Op.iLike]: `%${keywords}%` } }, 
+                    { description: { [Op.iLike]: `%${keywords}%` } }, 
+                    { job_type: { [Op.iLike]: `%${keywords}%` } } 
+                ]
+            };
+        }
 
-            }
-        })
+           if(location) {
+            query.include.push({
+                model: Location,
+                where: {
+                    location_name: { [Op.iLike]: `%${location}%` }
+                }
+            });
+        }
+
+        if(category) {
+            query.include.push({
+                model: Category,
+                where: {
+                    category_name: { [Op.iLike]: `%${category}%` }
+                }
+            });
+        }
+       
+
+        const roleData = await Role.findAll(query)
+
+        const searchedRoles = roleData.map((project) => project.get({plain:true}))
+
+        res.status(200).json(searchedRoles)
+        /*res.render('searchedRoles', {  //***
+            searchedRoles,   // searchedRoles = searchedRoles: [{searchedrole 1}, {searchedrole 2}, {searchedrole 3}]
+            logged_in: req.session.logged_in
+        })*/
+
+
     } catch(err) {
-
+        res.status(200).json(err)
     }
 })
-*/
+
 
 
 // profile page [route for getting current session's user's user record and their associated savedRoles and Applications to display on their profile page]
@@ -100,23 +132,28 @@ router.get('/profile', withAuth, async (req, res) =>{
             attributes: { exclude: ['password'] },
             include: [
                 { model: Role,
-                  as: 'SavedRoles',     //includes an array of all the SavedRole records associated with this user under an alias "SavedRoles"
-                  include: [{model: Role}] },    // includes the Role record associated with each SavedRole record in the SavedRoles array
+                 through: { model: SavedRole },
+                 as: 'SavedRoles',     //includes an array of all the SavedRole records associated with this user under an alias "SavedRoles"
+                },    
                 { model: Role,
-                  as: 'AppliedRoles',   //includes an array of all the Application records associated with this user under an alias "AppliedRoles"
-                  include: [{model: Role}] }     // includes the Role record associated with each Application record in the AppliedRoles array
+                 through: { model: Application },
+                 as: 'AppliedRoles',   //includes an array of all the Application records associated with this user under an alias "AppliedRoles"
+                }
             ]
         })
 
         const user = userData.get({ plain: true });
-        res.render('profile', {
+       //res.status(200).json(user)
+
+       res.render('profile', {
             user,     // user = user: {user row}
-            logged_in: true
+           logged_in: true
         })
     } catch(err){
         res.status(500).json(err)
     }
 })
+
 
 
 // application page [route for when you click 'apply' on a job it allows you to personalise the form by including the name of the role you're applying for (clicked on)]
