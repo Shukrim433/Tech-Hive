@@ -7,11 +7,11 @@
         <p>{{role.location.location_name}}</p>
         <p>{{role.category.category_name}}</p>
         <p>{{role.description}}</p>
-        <a href="/api/application/{{role.id}}"><button class="applybtn button">Apply Now</button></a>
-        <button class="savebtn button" data-role-id="{{role.id}}">Save Job</button>  <!--add javascript functionality so that when they click save the button changes to 'saved'-->
+        <a href="/application/{{role.id}}"><button class="applybtn button">Apply Now</button></a>
+        <button class="savebtn button" data-role-id="{{role.id}}">Save Job</button>  <!--js when they click save it makes a post request to /api/savedRole/(creates a savedRole record) add javascript functionality so that when they click save the button changes to 'saved' if response.ok saved +refresh page-->
     </div>
 </div>
 
 
 
-<script src="../public/js/role.js"></script>
+<script src="js/role.js"></script>
