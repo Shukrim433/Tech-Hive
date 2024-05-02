@@ -34,17 +34,17 @@ Role.belongsTo(Location, {
 
 //many to many
 // Roles belongToMany Tags (through RoleTag): 1 role can have multiple tags associated with it***
-Role.belongsToMany(Tag, {
-  through: RoleTag,            // Use through for many-to-many associations
-  foreignKey: 'role_id',
-  onDelete: 'CASCADE'
-})
+// Role.belongsToMany(Tag, {
+//   through: RoleTag,            // Use through for many-to-many associations
+//   foreignKey: 'role_id',
+//   onDelete: 'CASCADE'
+// })
 // Tags belongToMany Roles (through RoleTag):  1 tag can be associated with multiple roles***
-Tag.belongsToMany(Role, {
-  through: RoleTag,            // Use through for many-to-many associations
-  foreignKey: 'tag_id',
-  onDelete: 'CASCADE',
-})
+// Tag.belongsToMany(Role, {
+//   through: RoleTag,            // Use through for many-to-many associations
+//   foreignKey: 'tag_id',
+//   onDelete: 'CASCADE',
+// })
 
 
 //many to many
@@ -82,8 +82,8 @@ User.belongsToMany(Role, {
 module.exports = {
   Role,
   Category,
-  Tag,
-  RoleTag,
+  // Tag,
+  // RoleTag,
   Location,
   User,
   Application,

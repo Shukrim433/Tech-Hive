@@ -151,6 +151,9 @@ const roleData = [
     salary: 95000,
     company: 'IoT Solutions',
     description: 'IoT Solutions is seeking a talented IoT Engineer to join our innovative team and drive the development of cutting-edge Internet of Things solutions. As an IoT Engineer, you will be responsible for designing, prototyping, and deploying IoT systems for various industries, including smart cities, industrial automation, and healthcare. You will work closely with cross-functional teams to gather requirements, design architectures, and integrate IoT technologies such as sensors, actuators, and communication protocols. The ideal candidate should have a strong background in electrical engineering or computer science, with expertise in IoT platforms, cloud services, and data analytics. If you are passionate about leveraging IoT technology to solve real-world problems and shape the future of connected devices, we would love to hear from you!',
+    job_type: 'Full-time',
+    location_id: 5,
+    category_id: 14, // "Internet of Things (IoT)" category has id 14
   },
   {
     role_name: 'AI Research Scientist',
@@ -396,31 +399,31 @@ const roleData = [
     category_id: 1, // "Software Development" category has id 1
   },
   {
-      role_name: 'Data Analyst',
-      salary: 80000,
-      company: 'DataInsights',
-      description: 'DataInsights is looking for a talented Data Analyst to turn data into insights that drive business decisions. As a Data Analyst, you will collect, clean, and analyze large datasets to identify trends, patterns, and opportunities. You will create data visualizations and reports to communicate findings to stakeholders and support decision-making processes. The ideal candidate should have strong analytical skills, proficiency in SQL and data analysis tools such as Python or R, and the ability to work with structured and unstructured data. Experience with BI tools like Tableau or Power BI is desirable. If you are passionate about data and have a knack for uncovering valuable insights, we want to hear from you.',
-      job_type: 'Full-time',
-      location_id: 3,
-      category_id: 2, // "Data Analysis" category has id 2
+    role_name: 'Data Analyst',
+    salary: 80000,
+    company: 'DataInsights',
+    description: 'DataInsights is looking for a talented Data Analyst to turn data into insights that drive business decisions. As a Data Analyst, you will collect, clean, and analyze large datasets to identify trends, patterns, and opportunities. You will create data visualizations and reports to communicate findings to stakeholders and support decision-making processes. The ideal candidate should have strong analytical skills, proficiency in SQL and data analysis tools such as Python or R, and the ability to work with structured and unstructured data. Experience with BI tools like Tableau or Power BI is desirable. If you are passionate about data and have a knack for uncovering valuable insights, we want to hear from you.',
+    job_type: 'Full-time',
+    location_id: 3,
+    category_id: 2, // "Data Analysis" category has id 2
   },
   {
-      role_name: 'UX Researcher',
-      salary: 85000,
-      company: 'UserInsight',
-      description: 'UserInsight is seeking a UX Researcher to conduct user research and gather insights to inform product design and development. As a UX Researcher, you will plan and conduct user studies, interviews, and surveys to understand user needs, behaviours, and preferences. You will analyse research data and generate actionable insights to drive UX improvements and innovation. The ideal candidate should have a background in psychology, human-computer interaction, or a related field, with experience in qualitative and quantitative research methods. Strong communication and collaboration skills are essential. If you are passionate about understanding user behaviour and creating exceptional user experiences, we would love to have you on our team.',
-      job_type: 'Full-time',
-      location_id: 1,
-      category_id: 3, // "Design" category has id 3
+    role_name: 'UX Researcher',
+    salary: 85000,
+    company: 'UserInsight',
+    description: 'UserInsight is seeking a UX Researcher to conduct user research and gather insights to inform product design and development. As a UX Researcher, you will plan and conduct user studies, interviews, and surveys to understand user needs, behaviours, and preferences. You will analyse research data and generate actionable insights to drive UX improvements and innovation. The ideal candidate should have a background in psychology, human-computer interaction, or a related field, with experience in qualitative and quantitative research methods. Strong communication and collaboration skills are essential. If you are passionate about understanding user behaviour and creating exceptional user experiences, we would love to have you on our team.',
+    job_type: 'Full-time',
+    location_id: 1,
+    category_id: 3, // "Design" category has id 3
   },
   {
-      role_name: 'Cloud Solutions Architect',
-      salary: 110000,
-      company: 'CloudGenius',
-      description: 'CloudGenius is looking for a Cloud Solutions Architect to design and implement cloud solutions that meet the needs of our clients. As a Cloud Solutions Architect, you will work closely with clients to understand their requirements and design scalable, secure, and cost-effective cloud architectures. You will oversee the implementation of cloud solutions, providing guidance and best practices to development teams. The ideal candidate should have a deep understanding of cloud computing technologies and services, along with experience in architecture design and cloud migration projects. Certifications such as AWS Certified Solutions Architect or Azure Solutions Architect are highly desirable. If you are passionate about cloud technology and enjoy designing innovative solutions, we encourage you to apply.',
-      job_type: 'Full-time',
-      location_id: 2,
-      category_id: 4, // "Cloud Computing" category has id 4
+    role_name: 'Cloud Solutions Architect',
+    salary: 110000,
+    company: 'CloudGenius',
+    description: 'CloudGenius is looking for a Cloud Solutions Architect to design and implement cloud solutions that meet the needs of our clients. As a Cloud Solutions Architect, you will work closely with clients to understand their requirements and design scalable, secure, and cost-effective cloud architectures. You will oversee the implementation of cloud solutions, providing guidance and best practices to development teams. The ideal candidate should have a deep understanding of cloud computing technologies and services, along with experience in architecture design and cloud migration projects. Certifications such as AWS Certified Solutions Architect or Azure Solutions Architect are highly desirable. If you are passionate about cloud technology and enjoy designing innovative solutions, we encourage you to apply.',
+    job_type: 'Full-time',
+    location_id: 2,
+    category_id: 4, // "Cloud Computing" category has id 4
   },
 ];
 

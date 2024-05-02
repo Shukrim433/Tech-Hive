@@ -1,7 +1,7 @@
 const seedCategories = require('./category-seeds');
 const seedRoles = require('./role-seeds');
-const seedTags = require('./tag-seeds');
-const seedRoleTags = require('./role-tag-seeds');
+// const seedTags = require('./tag-seeds');
+// const seedRoleTags = require('./role-tag-seeds');
 const seedUsers = require('./user-seeds');
 const seedApplications = require('./application-seeds');
 const seedLocations = require('./location-seeds')
@@ -20,14 +20,14 @@ const seedAll = async () => {
   await seedCategories();
   console.log('\n----- CATEGORIES SEEDED -----\n');
   
-  await seedTags();
-  console.log('\n----- TAGS SEEDED -----\n');
+  // await seedTags();
+  // console.log('\n----- TAGS SEEDED -----\n');
 
   await seedRoles();
   console.log('\n----- ROLES SEEDED -----\n');
 
-  await seedRoleTags();
-  console.log('\n----- ROLE TAGS SEEDED -----\n');
+  // await seedRoleTags();
+  // console.log('\n----- ROLE TAGS SEEDED -----\n');
 
   await seedUsers();
   console.log('\n----- USERS SEEDED -----\n');

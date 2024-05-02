@@ -6,9 +6,9 @@ const savedRolesData = [
       role_id: 2, //saved role 2
     },
     {
-        user_id: 1, // user 1
-        role_id: 9, //saved role 9
-      },
+      user_id: 1, // user 1
+      role_id: 3, //saved role 9
+    },
     {
       user_id: 2, // user 2
       role_id: 1, // saved role 1
