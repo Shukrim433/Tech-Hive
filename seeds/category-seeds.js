@@ -12,7 +12,13 @@ const categoryData = [
   { category_name: 'Cybersecurity' },
   { category_name: 'Database Administration' },
   { category_name: 'Product Management' },
-  { category_name: 'IT Support' },
+  { category_name: 'Artificial Intelligence Research' },
+  { category_name: 'Blockchain Development' },
+  { category_name: 'Game Development' },
+  { category_name: 'Internet of Things (IoT)' },
+  { category_name: 'Embedded Systems' },
+  { category_name: 'Quantum Computing' },
+  { category_name: 'Augmented Reality (AR)' },
 ];
 
 const seedCategories = () => Category.bulkCreate(categoryData);
