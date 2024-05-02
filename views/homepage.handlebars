@@ -1,9 +1,18 @@
-<div class="search-div">
-  
-  <input id="query-input" placeholder="e.g. Full time software engineer"></input>
-  
-  <select id="location-select" name="locations">  <!--should we change these to text inputs?-->
-    <option value="">Location</option>
+<div class="hero-and-search">
+    <div class="hero-section">
+        <h2>Jobs for Unemployed Youth<br>No Experience? No Problem</h2>
+        <p>Empowering Youth through No Experience Job Opportunities.</p>
+        <button onclick="location.href='/';">Find a job</button>
+    </div>
+
+
+
+
+    <div class="search-container">
+        <div class="search-div">
+            <input type="text" id="query-input" placeholder="Search for jobs" class="search-field">
+            <select class="location-select search-field" name="locations">
+                <option value="">Location</option>
     <option value="New York">New York</option>
     <option value="San Francisco">San Francisco</option>
     <option value="Los Angeles">Los Angeles</option>
@@ -19,8 +28,8 @@
     <option value="Rome">Rome</option>
   </select>
 
-  <select id="category-select" name="categories">
-    <option value="">Category</option>
+     <select class="category-select search-field" name="categories">
+                <option value="">Category</option>
     <option value="Software Development">Software Development</option>
     <option value="Data Analysis">Data Analysis</option>
     <option value="Design">Design</option>
@@ -33,22 +42,111 @@
     <option value="Product Management">Product Management</option>
     <option value="IT Support">IT Support</option>
   </select>
+     <input type="submit" value="Search"> 
+</div>
+</div>
 
 </div>
 
-<div id="featured-roles-container">
-  <h2>Featured Jobs:</h2>
-  <div id="featured-roles-card">
-    {{#each featuredRoles as |featuredRole|}}
-    <div class="featured-role-card">
-      <a href="/role/{{featuredRole.id}}">{{featuredRole.role_name}}</a>
-      <p>{{featuredRole.company}}</p>
-      <p>£{{featuredRole.salary}}</p>
-      <p>{{featuredRole.job_type}}</p>
-      <p>{{featuredRole.location.location_name}}</p>
+
+<h2 class="jobs-header">Featured Jobs:</h2> 
+
+<div class="job_container">
+
+
+<div class="filter-section">
+    <div class="location-filter">
+        <label for="location-select">Location</label>
+        <select id="location-select" name="locations" class="search-field">
+            <option value="">Select a location</option>
+            <option value="New York">New York</option>
+            <option value="San Francisco">San Francisco</option>
+            <option value="Los Angeles">Los Angeles</option>
+            <option value="London">London</option>
+            <option value="Paris">Paris</option>
+            <option value="Berlin">Berlin</option>
+            <option value="Manchester">Manchester</option>
+            <option value="Amsterdam">Amsterdam</option>
+            <option value="Madrid">Madrid</option>
+            <option value="Barcelona">Barcelona</option>
+            <option value="Dublin">Dublin</option>
+            <option value="Edinburgh">Edinburgh</option>
+            <option value="Rome">Rome</option>
+        </select>    
     </div>
-    {{/each}}
-  </div>
+    <div class="employment-type-filter">
+        <label>Employment Type</label>
+        <div class="checkbox-group">
+            <label>
+                <input type="checkbox" name="employment-type" value="Full-time"> Full-time
+            </label>
+            <label>
+                <input type="checkbox" name="employment-type" value="Part-time"> Part-time
+            </label>
+            <label>
+                <input type="checkbox" name="employment-type" value="Remote"> Remote
+            </label>
+        </div>
+    </div>
+    <div class="special-skills-filter">
+        <label>Special Skills</label>
+        <div class="checkbox-group">
+            <label>
+                <input type="checkbox" name="skills" value="React"> React
+            </label>
+             <label>
+                <input type="checkbox" name="skills" value="Swift"> Swift
+            </label>
+             <label>
+                <input type="checkbox" name="skills" value="NoSQl"> NoSQL
+            </label>
+             <label>
+                <input type="checkbox" name="skills" value="AI"> AI
+            </label>
+             <label>
+                <input type="checkbox" name="skills" value="MongoDB"> React
+            </label>
+    
+            <label>
+                <input type="checkbox" name="skills" value="Angular"> Angular
+            </label>
+            <label>
+                <input type="checkbox" name="skills" value="Vue"> Vue
+            </label>
+            <label>
+                <input type="checkbox" name="skills" value="Machine Learning"> Machine Learning
+            </label>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Featured Jobs Section -->
+ 
+    <div class="featured-jobs-section">
+            <div id="featured-roles-card">
+
+            {{#each featuredRoles as |featuredRole|}}
+                <div class="featured-role-card">
+
+
+
+  <a class = "job-title" href="/role/{{featuredRole.id}}">{{featuredRole.role_name}}</a>
+  
+    <p class="company-name">{{featuredRole.company}}</p>
+    <p class="salary">£{{featuredRole.salary}}</p>
+    <p class="job-type">{{featuredRole.job_type}}</p>
+    <p class="location"><i class="fas fa-map-marker-alt"></i> {{featuredRole.location.location_name}}</p>
+</div>
+
+            {{/each}}
+        </div>
+    </div>
+
+    <!-- Job Details Section -->
+    <div class="job-details-section">
+        <!-- Dynamic job details will be loaded here -->
+    </div>
 </div>
 
 <script src="../public/js/homepage.js"></script>

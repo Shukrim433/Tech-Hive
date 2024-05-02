@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
         const shuffledRoles = roleData.sort(() => Math.random() - 0.5); //this line sorts the array randomly by using a comparator functin that generates random positive or negative values.
 
         // gets 8 random roles objects and puts them in an array called:
-        const randomRoles = shuffledRoles.slice(0, 8);
+        const randomRoles = shuffledRoles.slice(0, 6);
 
         // Serializes data so the template can read it
         const featuredRoles = randomRoles.map((project) => project.get({plain:true}))
