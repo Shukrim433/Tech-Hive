@@ -197,7 +197,7 @@ router.get('/login', (req, res) => {
         res.redirect('/profile')
         return
     }
-    //else if youre not logged in it shows you the login page:
+    //else if you're not logged in it shows you the login page:
     res.render('login')
 })
 

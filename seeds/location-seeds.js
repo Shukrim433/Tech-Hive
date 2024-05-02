@@ -14,6 +14,8 @@ const locationData = [
     { location_name: 'Dublin' },
     { location_name: 'Edinburgh' },
     { location_name: 'Rome' },
+    { location_name: 'Milan' },
+    { location_name: 'Munich' },
     // Add more location entries here...
 ];
 
