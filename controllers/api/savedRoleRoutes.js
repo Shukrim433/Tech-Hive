@@ -6,6 +6,7 @@ const withAuth = require('../../utils/auth');
 // save buttons  [routes for when user clicks save on a role and as a result a fetch POST request will be made to this route with the req.body being the role that the save button is in]
 // /api/savedRole/
 router.post('/', withAuth, async (req,res) => {
+    console.log(req.body)//**
     try {
         const savedRoleData = await SavedRole.create({
             role_id: req.body.role_id,

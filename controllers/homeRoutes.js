@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
             include: [
                 {model: Location},
                 {model: Category},
-                {model: Tag, through: RoleTag}
+                //{model: Tag, through: RoleTag}
             ]
         })
 
