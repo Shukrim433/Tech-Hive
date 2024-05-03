@@ -8,6 +8,7 @@ const { Application } = require('../../models');
 // send application buttons  [routes for when user clicks send application on an application form and as a result a fetch POST request will be made to this route with the req.body being the details entered into the form AND the user_id and role_id for the foreign keys of the application model]
 // /api/application/
 router.post('/', withAuth, async (req,res) => {
+    console.log(req.body) //**
     try {
         const applicationData = await Application.create({
             first_name: req.body.first_name,    
@@ -20,6 +21,7 @@ router.post('/', withAuth, async (req,res) => {
         })
         res.status(200).json(applicationData)
     } catch(err){
+        console.log(err)//**
         res.status(500).json(err)
     }
 })

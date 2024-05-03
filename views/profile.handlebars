@@ -1,44 +1,43 @@
 <div id="personal-info">
     <h1>Welcome, {{user.first_name}} {{user.last_name}}</h1> 
     <p>{{user.email}}</p>
+    <p>{{user.phone_number}}</p>
+    <a href="{{user.cv_link}}"> My CV 🔗</a>
 </div>
 
 <div class="applied-role-list">
     <h2>Your Applied Jobs: </h2>
     {{#if user.AppliedRoles.length}}
-    {{#each user.AppliedRoles as |AppliedRole|}}
-    <div class="role-card">
-        <h4><a href="/role/{{AppliedRole.role.id}}">{{AppliedRole.role.role_name}}</a></h4>           
-        <p>{{AppliedRole.role.company}}</p>
-        <p>{{AppliedRole.role.salary}}</p>
-        <p>{{AppliedRole.role.job_type}}</p>
-        <button class="button" data-id="{{AppliedRole.id}}">Delete Application</button>
-    </div>
+        {{#each user.AppliedRoles as |AppliedRole|}}
+            <div class="role-card">
+                <h4><a href="/role/{{AppliedRole.id}}">{{AppliedRole.role_name}}</a></h4>     <!--**-->      
+                <p>{{AppliedRole.company}}</p><!--**-->
+                <p>{{AppliedRole.salary}}</p><!--**-->
+                <p>{{AppliedRole.job_type}}</p><!--**-->
+                <button id="deleteAppBtn"class="button" data-id="{{AppliedRole.application.id}}">Delete Application</button><!--**-->
+            </div>
+        {{/each}}
     {{else}}
-    <p>You currently do not have any applied jobs.</p>
-    {{/each}}
+        <p>You currently do not have any applied jobs.</p>
     {{/if}}
 </div>
 
 <div class="saved-role-list">
     <h2>Your Saved Jobs: </h2>
     {{#if user.SavedRoles.length}}
-    {{#each user.SavedRoles as |SavedRole|}}
-    <div class="role-card">
-        <h4><a href="/role/{{SavedRole.role.id}}">{{SavedRole.role.role_name}}</a></h4>
-        <p>{{SavedRole.role.company}}</p>
-        <p>{{SavedRole.role.salary}}</p>
-        <p>{{SavedRole.role.job_type}}</p>
-        <button class="button" data-id="{{SavedRole.id}}">Delete Saved job</button>
-    </div>
+        {{#each user.SavedRoles as |SavedRole|}}
+            <div class="role-card">
+                <h4><a href="/role/{{SavedRole.id}}">{{SavedRole.role_name}}</a></h4><!--**-->
+                <p>{{SavedRole.company}}</p><!--**-->
+                <p>{{SavedRole.salary}}</p><!--**-->
+                <p>{{SavedRole.job_type}}</p><!--**-->
+                <button id="deleteSavedRoleBtn" class="button" data-id="{{SavedRole.saved_role.id}}">Delete Saved job</button><!--**-->
+            </div>
+        {{/each}}
     {{else}}
-    <p>You currently do not have any saved jobs.</p>
-    {{/each}}
+        <p>You currently do not have any saved jobs.</p>
     {{/if}}
 </div>
 
 
-
-
-
-<script src="/js/profile.js"></script>
+<script src="js/profile.js"></script>
