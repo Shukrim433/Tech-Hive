@@ -1,49 +1,43 @@
 <div class="hero-and-search">
     <div class="hero-section">
-        <h2>Jobs for Unemployed Youth<br>No Experience? No Problem</h2>
-        <p>Empowering Youth through No Experience Job Opportunities.</p>
-        <button onclick="location.href='/';">Find a job</button>
-    </div>
-
-
-
-
-    <div class="search-container">
-        <div class="search-div">
-            <input type="text" id="query-input" placeholder="Search for jobs" class="search-field">
-            <select class="location-select search-field" name="locations">
-                <option value="">Location</option>
-    <option value="New York">New York</option>
-    <option value="San Francisco">San Francisco</option>
-    <option value="Los Angeles">Los Angeles</option>
-    <option value="London">London</option>
-    <option value="Paris">Paris</option>
-    <option value="Berlin">Berlin</option>
-    <option value="Manchester">Manchester</option>
-    <option value="Amsterdam">Amsterdam</option>
-    <option value="Madrid">Madrid</option>
-    <option value="Barcelona">Barcelona</option>
-    <option value="Dublin">Dublin</option>
-    <option value="Edinburgh">Edinburgh</option>
-    <option value="Rome">Rome</option>
-  </select>
-
-     <select class="category-select search-field" name="categories">
-                <option value="">Category</option>
-    <option value="Software Development">Software Development</option>
-    <option value="Data Analysis">Data Analysis</option>
-    <option value="Design">Design</option>
-    <option value="Cloud Computing">Cloud Computing</option>
-    <option value="Network Engineering">Network Engineering</option>
-    <option value="DevOps">DevOps</option>
-    <option value="Machine Learning">Machine Learning</option>
-    <option value="Cybersecurity">Cybersecurity</option>
-    <option value="Database Administration">Database Administration</option>
-    <option value="Product Management">Product Management</option>
-    <option value="IT Support">IT Support</option>
-  </select>
-     <input type="submit" value="Search"> 
+        <h2>A hub for jobs in the tech industry across the world</h2>
+        <i id="quote">If you can dream it, you can do it.</i>  <br>
+        <i id="author">- Walt Disney -</i>
 </div>
+
+
+
+
+<div class="search-container">
+    <div class="search-div">
+        <form action="/search-results">
+            <input type="text" id="query-input" placeholder="Search for jobs" class="search-field" name="roleName">
+            <select class="job-type-select search-field" name="jobType">
+                <option value="">Job Type</option>
+                <option value="Full-time">Full-time</option>
+                <option value="Part-time">Part-time</option>
+                <option value="Remote">Remote</option>
+                <option value="Hybrid">Hybrid</option>
+            </select>
+            <select class="location-select search-field" name="location">
+                <option value="">Location</option>
+                <option value="New York">New York</option>
+                <option value="San Francisco">San Francisco</option>
+                <option value="Los Angeles">Los Angeles</option>
+                <option value="London">London</option>
+                <option value="Paris">Paris</option>
+                <option value="Berlin">Berlin</option>
+                <option value="Manchester">Manchester</option>
+                <option value="Amsterdam">Amsterdam</option>
+                <option value="Madrid">Madrid</option>
+                <option value="Barcelona">Barcelona</option>
+                <option value="Dublin">Dublin</option>
+                <option value="Edinburgh">Edinburgh</option>
+                <option value="Rome">Rome</option>
+                </select>
+                <button id="submitbtn" type="submit" value="Search">Search</button>
+        </form>
+    </div>
 </div>
 
 </div>
@@ -150,4 +144,4 @@
         </div>
 </div>
 
-<script src="/js/homepage.js"></script>
+<script src="/js/quotesApi.js"></script>
