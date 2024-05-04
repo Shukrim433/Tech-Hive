@@ -3,7 +3,6 @@ const sequelize = require('../config/connection');
 //junction model (joins user and role to make = application)
 //this model to represents the applications submitted by users for specific roles. 
 
-
 class Application extends Model {}
 
 Application.init(
