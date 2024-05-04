@@ -70,24 +70,33 @@ router.get('/search-results', async(req, res) => {
     try {
         const query = {
             where: {},
-            include: [{model: Location}, {model: Category}]
+            include: [{model: Location}]
         }
-        const keywords = req.query.keywords
+        const roleName = req.query.roleName
+        const jobType = req.query.jobType
         const location = req.query.location
-        const category = req.query.category
         
-
-        if(keywords) {
+        
+        if(roleName) {
             query.where = {
-               [Op.or]: [
-                    {role_name: { [Op.iLike]: `%${keywords}%` } }, 
-                    { description: { [Op.iLike]: `%${keywords}%` } }, 
-                    { job_type: { [Op.iLike]: `%${keywords}%` } } 
-                ]
+               role_name: { [Op.iLike]: `%${roleName}%` }
             };
         }
 
-           if(location) {
+        if(jobType) {
+            query.where = {
+               job_type: { [Op.iLike]: `%${jobType}%` }
+            };
+        }
+
+        if(jobType && roleName) {
+            query.where = {
+               job_type: { [Op.iLike]: `%${jobType}%` },
+               role_name: { [Op.iLike]: `%${roleName}%` }
+            };
+        }
+
+        if(location) {
             query.include.push({
                 model: Location,
                 where: {
@@ -96,25 +105,25 @@ router.get('/search-results', async(req, res) => {
             });
         }
 
-        if(category) {
-            query.include.push({
-                model: Category,
-                where: {
-                    category_name: { [Op.iLike]: `%${category}%` }
-                }
-            });
+        //if the user presses search w/o entering anything
+        if(!jobType && !roleName && !location){
+            const searchedRoles = []
+            res.render('searchedRoles', {
+                searchedRoles,
+                logged_in: req.session.logged_in
+            })
         }
        
 
         const roleData = await Role.findAll(query)
 
         const searchedRoles = roleData.map((project) => project.get({plain:true}))
-
-        res.status(200).json(searchedRoles)
-        /*res.render('searchedRoles', {  //***
+        console.log(searchedRoles, 'searchedRoles')
+        //res.status(200).json(searchedRoles)
+        res.render('searchedRoles', {  //***
             searchedRoles,   // searchedRoles = searchedRoles: [{searchedrole 1}, {searchedrole 2}, {searchedrole 3}]
             logged_in: req.session.logged_in
-        })*/
+        })
 
 
     } catch(err) {
