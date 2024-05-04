@@ -34,16 +34,13 @@ router.delete('/:id', withAuth, async (req, res) => {
                 user_id: req.session.userId
             }
         })
+        
 
-        /*if(!applicationData) {
+        if(!applicationData) {
             res.status(404).json({message: 'no application with this id found'})
             return
-        }*/
-
-        if(applicationData) {
-            res.redirect('/profile')
-            return
         }
+
         //res.status(200).json(applicationData).redirect('/profile')
 
         // reloads the profile page after successfully deleting the 'applied role' to show updated applied role section
