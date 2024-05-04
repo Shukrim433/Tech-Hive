@@ -1,6 +1,6 @@
 const deleteSavedRole = async (event) => {
   if (event.target.hasAttribute('data-id')) {
-    // console.log(helo1) //**
+     console.log('helo1') //**
     const id = event.target.getAttribute('data-id');
 
     const response = await fetch(`/api/savedRole/${id}`, {
@@ -16,7 +16,7 @@ const deleteSavedRole = async (event) => {
 }; 
 
 const deleteAppliedRole = async (event) => {
-  // console.log(helo)//**
+  console.log('helo')//**
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
 
