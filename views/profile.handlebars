@@ -14,7 +14,7 @@
                 <p>{{AppliedRole.company}}</p><!--**-->
                 <p>{{AppliedRole.salary}}</p><!--**-->
                 <p>{{AppliedRole.job_type}}</p><!--**-->
-                <button id="deleteAppBtn"class="button" data-id="{{AppliedRole.application.id}}">Delete Application</button><!--**-->
+                <button class="button deleteAppBtn" data-id="{{AppliedRole.application.id}}">Delete Application</button><!--**-->
             </div>
         {{/each}}
     {{else}}
@@ -31,7 +31,7 @@
                 <p>{{SavedRole.company}}</p><!--**-->
                 <p>{{SavedRole.salary}}</p><!--**-->
                 <p>{{SavedRole.job_type}}</p><!--**-->
-                <button id="deleteSavedRoleBtn" class="button" data-id="{{SavedRole.saved_role.id}}">Delete Saved job</button><!--**-->
+                <button class="button deleteSavedRoleBtn" data-id="{{SavedRole.saved_role.id}}">Delete Saved job</button><!--**-->
             </div>
         {{/each}}
     {{else}}

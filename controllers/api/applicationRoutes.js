@@ -1,8 +1,5 @@
 const router = require('express').Router();
 const withAuth = require('../../utils/auth');
-
-
-
 const { Application } = require('../../models');
 
 // send application buttons  [routes for when user clicks send application on an application form and as a result a fetch POST request will be made to this route with the req.body being the details entered into the form AND the user_id and role_id for the foreign keys of the application model]
@@ -37,16 +34,20 @@ router.delete('/:id', withAuth, async (req, res) => {
                 userId: req.session.userId
             }
         })
+        console.log({
+              id: req.params.id,
+              userId: req.session.userId
+            });
 
         if(!applicationData) {
             res.status(404).json({message: 'no application with this id found'})
             return
         }
-
         //res.status(200).json(applicationData).redirect('/profile')
 
         // reloads the profile page after successfully deleting the 'applied role' to show updated applied role section
-        res.redirect('/profile');
+        // res.redirect('/profile');
+        res.status(200).json({ message: "Application deleted successfully." });
     } catch(err) {
         res.status(500).json(err)
     }
