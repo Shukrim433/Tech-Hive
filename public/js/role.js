@@ -21,10 +21,7 @@ const saveBtnHandler = async (event) => {
       alert('Failed to save role');
       }
   }
-
-
 };
-
 
 document
   .querySelector('#savebtn')//**
