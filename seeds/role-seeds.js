@@ -16,7 +16,7 @@ const roleData = [
     salary: 85000,
     company: 'TechGuru',
     description: 'Looking for a talented Software Engineer to work on exciting projects, collaborating with cross-functional teams to deliver high-quality software solutions. The successful candidate will have a passion for coding and problem-solving.',
-    job_type: 'Full-time',
+    job_type: 'Remote',
     location_id: 2,
     category_id: 1, // "Software Development" category has id 1
   },
@@ -61,7 +61,7 @@ const roleData = [
     salary: 90000,
     company: 'TechOps',
     description: 'Join our team to automate and streamline our software development processes. The ideal candidate will have experience with CI/CD pipelines and a strong background in Linux systems administration.',
-    job_type: 'Full-time',
+    job_type: 'Remote',
     location_id: 5, 
     category_id: 6, //  "DevOps" category has id 6
   },
@@ -88,7 +88,7 @@ const roleData = [
     salary: 80000,
     company: 'WebWorks',
     description: 'We are looking for a Frontend Developer to create beautiful and responsive user interfaces. The candidate should have a passion for web development and proficiency in modern frontend frameworks such as React or Vue.js.',
-    job_type: 'Full-time',
+    job_type: 'Remote',
     location_id: 8, 
     category_id: 1, // "Software Development" category has id 1
   },
@@ -115,7 +115,7 @@ const roleData = [
     salary: 95000,
     company: 'DataWorks',
     description: 'Join our team as a Data Scientist II to tackle challenging data problems and drive data-driven decisions. The candidate should have experience in statistical analysis and proficiency in programming languages such as Python or R.',
-    job_type: 'Full-time',
+    job_type: 'Remote',
     location_id: 10,
     category_id: 2, //"Data Analysis" category has id 2
   },
@@ -169,7 +169,7 @@ const roleData = [
     salary: 90000,
     company: 'CryptoTech',
     description: 'CryptoTech is looking for a talented and enthusiastic Blockchain Developer to join our innovative team. As a Blockchain Developer, you will be responsible for designing, implementing, and maintaining decentralized applications (dApps) and smart contracts on blockchain platforms such as Ethereum, Hyperledger, or Binance Smart Chain. You will collaborate with cross-functional teams to identify and develop blockchain solutions that address real-world challenges in various industries, including finance, supply chain, and healthcare. The ideal candidate should have a solid understanding of blockchain technology and cryptographic principles, along with proficiency in programming languages such as Solidity, Go, or Java. Experience with blockchain development frameworks like Truffle or Web3.js is desirable. If you are passionate about blockchain technology and eager to contribute to the future of decentralized ecosystems, we would love to hear from you.',
-    job_type: 'Full-time',
+    job_type: 'Remote',
     location_id: 2,
     category_id: 12, // "Blockchain Development" category has id 12
   },
@@ -205,7 +205,7 @@ const roleData = [
     salary: 80000,
     company: 'QA Tech Solutions',
     description: 'QA Tech Solutions is seeking a detail-oriented Software Quality Assurance Engineer to ensure the quality and reliability of our software products. As a QA Engineer, you will be responsible for designing and executing test plans, identifying and documenting defects, and collaborating with development teams to resolve issues. The ideal candidate will have a strong understanding of software testing methodologies, along with experience in automated testing tools and techniques. If you are passionate about delivering high-quality software and ensuring an exceptional user experience, we want to hear from you.',
-    job_type: 'Full-time',
+    job_type: 'Part-time',
     location_id: 10,
     category_id: 1, // "Software Development" category has id 1
   },
@@ -283,10 +283,10 @@ const roleData = [
   },
   { 
     role_name: 'Software Development Manager',
-    salary: 120000,
+    salary: 60000,
     company: 'CodeLeaders',
     description: 'CodeLeaders is seeking an experienced Software Development Manager to lead our team of talented software engineers. As a Software Development Manager, you will be responsible for overseeing the planning, execution, and delivery of software projects, ensuring high quality and timely releases. You will mentor and coach team members, foster a culture of collaboration and innovation, and drive continuous improvement in development processes. The ideal candidate should have a strong background in software engineering, with proven leadership skills and a track record of delivering successful software products. Excellent communication and interpersonal skills are essential, along with the ability to manage multiple projects and priorities effectively. If you are passionate about leading high-performing teams and driving technical excellence, we want to hear from you.',
-    job_type: 'Full-time',
+    job_type: 'Part-time',
     location_id: 4,
     category_id: 1, // "Software Development" category has id 1
   },
@@ -301,10 +301,10 @@ const roleData = [
   },
   {
     role_name: 'User Experience Researcher',
-    salary: 90000,
+    salary: 45000,
     company: 'UserInsights',
     description: 'UserInsights is seeking a User Experience Researcher to conduct qualitative and quantitative research to inform the design and development of our digital products. As a User Experience Researcher, you will plan and execute user research studies, gather and analyze user feedback and behaviour data, and generate actionable insights to improve the user experience. The ideal candidate should have a strong understanding of research methodologies, usability testing techniques, and data analysis tools, as well as excellent communication and presentation skills. Experience with UX/UI design principles, prototyping tools, and agile development methodologies is desirable. If you are passionate about understanding user needs and creating intuitive and engaging digital experiences, we want to hear from you.',
-    job_type: 'Full-time',
+    job_type: 'Part-time',
     location_id: 10,
     category_id: 3, // "Design" category has id 3
   },
@@ -340,7 +340,7 @@ const roleData = [
     salary: 120000,
     company: 'DeepAI',
     description: 'DeepAI is looking for a talented Deep Learning Engineer to design, develop, and deploy deep learning models that power our AI-driven products and solutions. As a Deep Learning Engineer, you will work on cutting-edge projects in computer vision, natural language processing, and speech recognition, applying state-of-the-art deep learning techniques to solve complex problems. The ideal candidate should have a strong background in machine learning and deep learning, with hands-on experience in frameworks such as TensorFlow, PyTorch, or Keras, as well as proficiency in programming languages like Python or C++. Experience with cloud-based AI services, GPU computing, and model optimization techniques is desirable. If you are passionate about artificial intelligence and enjoy working on challenging and impactful projects, we want to hear from you.',
-    job_type: 'Full-time',
+    job_type: 'Remote',
     location_id: 8,
     category_id: 7, // "Machine Learning" category has id 7
   },
@@ -376,7 +376,7 @@ const roleData = [
     salary: 95000,
     company: 'AR Innovations',
     description: 'AR Innovations is seeking an Augmented Reality Developer to create immersive and interactive AR experiences for mobile and wearable devices. As an AR Developer, you will design and develop AR applications and experiences using ARKit, ARCore, or similar frameworks. You will collaborate with designers and 3D artists to bring AR concepts to life, from concept to deployment. The ideal candidate should have a strong background in mobile app development, 3D graphics programming, and user interface design. Experience with Unity3D, Unreal Engine, or similar game engines is desirable. If you are passionate about pushing the boundaries of augmented reality and creating magical experiences for users, we encourage you to apply.',
-    job_type: 'Full-time',
+    job_type: 'Remote',
     location_id: 12,
     category_id: 17, // "Augmented Reality (AR)" category has id 17
   },
@@ -403,7 +403,7 @@ const roleData = [
     salary: 80000,
     company: 'DataInsights',
     description: 'DataInsights is looking for a talented Data Analyst to turn data into insights that drive business decisions. As a Data Analyst, you will collect, clean, and analyze large datasets to identify trends, patterns, and opportunities. You will create data visualizations and reports to communicate findings to stakeholders and support decision-making processes. The ideal candidate should have strong analytical skills, proficiency in SQL and data analysis tools such as Python or R, and the ability to work with structured and unstructured data. Experience with BI tools like Tableau or Power BI is desirable. If you are passionate about data and have a knack for uncovering valuable insights, we want to hear from you.',
-    job_type: 'Full-time',
+    job_type: 'Remote',
     location_id: 3,
     category_id: 2, // "Data Analysis" category has id 2
   },

@@ -1,4 +1,4 @@
-<div id="personal-info">
+<div id="personal-info" class="personal-info">
     <h1>Welcome, {{user.first_name}} {{user.last_name}}</h1> 
     <p>{{user.email}}</p>
     <p>{{user.phone_number}}</p>
@@ -7,6 +7,7 @@
 
 <div class="applied-role-list">
     <h2>Your Applied Jobs: </h2>
+    <div class="container" id = "profile-container">
     {{#if user.AppliedRoles.length}}
         {{#each user.AppliedRoles as |AppliedRole|}}
             <div class="role-card">
@@ -21,9 +22,11 @@
         <p>You currently do not have any applied jobs.</p>
     {{/if}}
 </div>
+</div>
 
 <div class="saved-role-list">
     <h2>Your Saved Jobs: </h2>
+    <div class="container" id = "profile-container">
     {{#if user.SavedRoles.length}}
         {{#each user.SavedRoles as |SavedRole|}}
             <div class="role-card">
@@ -31,12 +34,13 @@
                 <p>{{SavedRole.company}}</p><!--**-->
                 <p>{{SavedRole.salary}}</p><!--**-->
                 <p>{{SavedRole.job_type}}</p><!--**-->
-                <a href="/profile"><button class="button deleteSavedRoleBtn" data-id="{{SavedRole.saved_role.id}}">Delete Saved job</button></a><!--**-->
+                <a href="/profile"><button class="button deleteSavedRoleBtn" data-id="{{SavedRole.saved_role.id}}">Delete Saved Job</button></a><!--**-->
             </div>
         {{/each}}
     {{else}}
         <p>You currently do not have any saved jobs.</p>
     {{/if}}
+</div>
 </div>
 
 

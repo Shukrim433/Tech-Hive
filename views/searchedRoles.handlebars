@@ -33,6 +33,7 @@
 
 
 <div class="searched-roles-section">
+    <div class="container" id = "searched-container">
     <div id="searched-roles-card">
         {{#if searchedRoles.length}}
         {{#each searchedRoles as |searchedRole|}}
@@ -47,5 +48,6 @@
     {{else}}
     <p>Oops, looks like we coundn't find any jobs to match your search, please try again!</p>
     {{/if}}
+    </div>
     </div>
 </div>

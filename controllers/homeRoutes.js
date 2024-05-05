@@ -13,7 +13,6 @@ router.get('/', async (req, res) => {
                 //{model: Tag, through: RoleTag}
             ]
         })
-
         // shuffles the array to get random role records
         const shuffledRoles = roleData.sort(() => Math.random() - 0.5); //this line sorts the array randomly by using a comparator functin that generates random positive or negative values.
 
@@ -35,6 +34,30 @@ router.get('/', async (req, res) => {
     }
 })
 
+// role nav page [route for showing list of all roles]
+router.get('/role-nav', async (req, res) => {
+    try {
+      // Get all roles and JOIN with user data
+      const roleData = await Role.findAll({
+        include: [
+          {model: Location, attributes: ['location_name']},
+          {model: Category, attributes: ['category_name']}
+        ],
+      });
+      // Serialize data so the template can read it
+      const roles = roleData.map((role) => role.get({ plain: true }));
+  
+      // Pass serialized data and session flag into template
+      res.render('role-nav', { 
+        roles, 
+        // name: req.session.name,
+        logged_in: req.session.logged_in 
+      });
+    } catch (err) {
+        console.log(err);
+      res.status(500).json(err);
+    }
+  });
 
 // individual role page [route for showing one role that was clicked on]
 router.get('/role/:id', async (req,res) => {
