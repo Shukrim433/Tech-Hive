@@ -26,7 +26,7 @@ router.delete('/:id', withAuth, async (req, res) => {
         const savedRoleData = await SavedRole.destroy({
             where: {
                 id: req.params.id,
-                userId: req.session.userId
+                user_id: req.session.userId
             }
         })
 

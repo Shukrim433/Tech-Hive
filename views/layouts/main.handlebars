@@ -18,17 +18,18 @@
 
 <header class="site-header">
     <nav class="header-nav">
-         <a href="/">Find Work</a>
-        <a href="/role">Role</a>
         <a href="/profile">Profile</a>
-        <a href="/application">Application</a>
     </nav>
     <a href="/" class="logo-link">
         <img src="/images/logo1.png" alt="Logo" class="header-logo">
     </a>
     <div class="auth-buttons">
+      {{#if logged_in}}
+      <button class="login-button" id="logout">Logout</button>
+      {{else}}
         <button class="login-button" onclick="location.href='/login';">Login</button>
         <button class="login-button" onclick="location.href='/signup';">Sign Up</button>
+      {{/if}}
     </div>
 </header>
 
