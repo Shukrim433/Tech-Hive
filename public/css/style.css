@@ -504,15 +504,38 @@ a:hover {
 }
 
 .personal-info {
-    margin-left: 15px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+.personal-info a {
+    text-align: inherit;
+}
+
+.personal-info h1 {
+    margin-bottom: 20px;
+}
+.profile-info {
+    display: inline-block;
+    margin-top: 10px;
+    border: 1px solid #567e98;
+    border-radius: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 8px; 
     padding: 20px;
 }
 
+.profile-title{
+    font-weight: bold;
+    font-size: 20px;
+    text-align: inherit;
+}
+
 .details {
-    flex: 1; /* Flexibility for each item to take equal width */
-    text-align: center; /* Center align the text */
-    margin: 0 10px; /* Margin for spacing */
-    white-space: nowrap; /* Avoid text wrapping */
+    flex: 1; 
+    text-align: center; 
+    margin: 0 10px; 
+    white-space: nowrap; 
 }
 
 
