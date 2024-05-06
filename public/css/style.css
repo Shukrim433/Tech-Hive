@@ -73,7 +73,7 @@ body, html
 .login-button {
     padding: 8px 16px;
     background-color: #0A1D2A; 
-    color: #fff;
+    color: #F9D40B;
     border: none;
     cursor: pointer;
     border-radius: 16px;
@@ -82,7 +82,8 @@ body, html
 }
 
 .login-button:hover {
-    background-color: #6e6446; 
+    background-color: #567e98; 
+    font-weight: bold;
 }
 
 .header-logo {
@@ -119,20 +120,17 @@ h3 {
 }
 
 #specific-container {
-    max-width: 90%;
+    max-width: 72%;
     margin: auto;
-    /* display: flex;
-    flex-wrap: wrap;
-    flex: 0 0 100%;
-    margin: 20px; */
-    display: flex; /* Use flexbox */
-    flex-wrap: wrap; /* Allow wrapping of flex items */
-    justify-content: space-between; /* Distribute items evenly with space between */
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between;
 }
 
 #profile-container {
     max-width: 70%;
     margin-top: 0;
+    
 }
 
 #searched-container{
@@ -180,7 +178,8 @@ label {
 }
 
 .button:hover {
-    background-color: #b1bfc6; 
+    background-color: #567e98; 
+    font-weight: bold;
 }
 
 #submitbtn {
@@ -190,7 +189,7 @@ label {
     color: #F9D40B;
     border: none;
     padding: 7px ;
-    border-radius: 4px; 
+    border-radius: 12px; 
     cursor: pointer;
     transition: background-color 0.3s; 
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -535,6 +534,7 @@ a:hover {
     padding: 20px;
     box-sizing: border-box;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    gap: 20px;
 }
 
 .company, .job, .sal, .loc, .dec, .cat {
@@ -553,6 +553,7 @@ a:hover {
 .role-card{
     padding: 10px;
     text-align: center;
+    margin-bottom: 40px;
 }
 
 /* Media Queries */

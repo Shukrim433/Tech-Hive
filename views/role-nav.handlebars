@@ -8,7 +8,7 @@
     <div class="all-role-card">
         <a href="/role/{{role.id}}">{{role.role_name}}</a> 
         <p class="company">{{role.company}}</p>
-        <p class="sal">£{{role.salary}} per annum</p>
+        <p class="sal">£{{formatNumberWithCommas role.salary}} per annum</p>
         <p class="job">{{role.job_type}}</p>
         <p class="loc">{{role.location.location_name}}</p>
         <p class="cat">{{role.category.category_name}}</p>
