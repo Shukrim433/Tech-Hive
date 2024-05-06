@@ -13,7 +13,7 @@
             <div class="role-card">
                 <h4><a href="/role/{{AppliedRole.id}}">{{AppliedRole.role_name}}</a></h4>     <!--**-->      
                 <p>{{AppliedRole.company}}</p><!--**-->
-                <p>{{AppliedRole.salary}}</p><!--**-->
+                <p>£{{formatNumberWithCommas AppliedRole.salary}} per annum</p><!--**-->
                 <p>{{AppliedRole.job_type}}</p><!--**-->
                 <a href="/profile"><button class="button deleteAppBtn" data-id="{{AppliedRole.application.id}}">Delete Application</button></a><!--**-->
             </div>
@@ -32,7 +32,7 @@
             <div class="role-card">
                 <h4><a href="/role/{{SavedRole.id}}">{{SavedRole.role_name}}</a></h4><!--**-->
                 <p>{{SavedRole.company}}</p><!--**-->
-                <p>{{SavedRole.salary}}</p><!--**-->
+                <p>£{{formatNumberWithCommas SavedRole.salary}} per annum</p><!--**-->
                 <p>{{SavedRole.job_type}}</p><!--**-->
                 <a href="/profile"><button class="button deleteSavedRoleBtn" data-id="{{SavedRole.saved_role.id}}">Delete Saved Job</button></a><!--**-->
             </div>
