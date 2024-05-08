@@ -3,8 +3,7 @@
         <h2>A hub for jobs in the tech industry across the world</h2>
         <i id="quote">If you can dream it, you can do it.</i>  <br>
         <i id="author">- Walt Disney -</i>
-</div>
-
+     </div>
 <div class="search-container">
     <div class="search-div">
         <form action="/search-results">
@@ -47,87 +46,18 @@
 <div class="job_container">
 
 
-<div class="filter-section">
-    <div class="location-filter">
-        <label for="location-select">Location</label>
-        <select id="location-select" name="locations" class="search-field">
-            <option value="">Select a location</option>
-            <option value="New York">New York</option>
-            <option value="San Francisco">San Francisco</option>
-            <option value="Los Angeles">Los Angeles</option>
-            <option value="London">London</option>
-            <option value="Paris">Paris</option>
-            <option value="Berlin">Berlin</option>
-            <option value="Manchester">Manchester</option>
-            <option value="Amsterdam">Amsterdam</option>
-            <option value="Madrid">Madrid</option>
-            <option value="Barcelona">Barcelona</option>
-            <option value="Dublin">Dublin</option>
-            <option value="Edinburgh">Edinburgh</option>
-            <option value="Rome">Rome</option>
-            <option value="Milan">Milan</option>
-            <option value="Munich">Munich</option>
-        </select>    
-    </div>
-    <div class="employment-type-filter">
-        <label>Employment Type</label>
-        <div class="checkbox-group">
-            <label>
-                <input type="checkbox" name="employment-type" value="Full-time"> Full-time
-            </label>
-            <label>
-                <input type="checkbox" name="employment-type" value="Part-time"> Part-time
-            </label>
-            <label>
-                <input type="checkbox" name="employment-type" value="Remote"> Remote
-            </label>
-        </div>
-    </div>
-    <div class="special-skills-filter">
-        <label>Special Skills</label>
-        <div class="checkbox-group">
-            <label>
-                <input type="checkbox" name="skills" value="React"> React
-            </label>
-             <label>
-                <input type="checkbox" name="skills" value="Swift"> Swift
-            </label>
-             <label>
-                <input type="checkbox" name="skills" value="NoSQl"> NoSQL
-            </label>
-             <label>
-                <input type="checkbox" name="skills" value="AI"> AI
-            </label>
-             <label>
-                <input type="checkbox" name="skills" value="MongoDB"> React
-            </label>
-    
-            <label>
-                <input type="checkbox" name="skills" value="Angular"> Angular
-            </label>
-            <label>
-                <input type="checkbox" name="skills" value="Vue"> Vue
-            </label>
-            <label>
-                <input type="checkbox" name="skills" value="Machine Learning"> Machine Learning
-            </label>
-        </div>
-    </div>
-</div>
 
+    
 
     <!-- Featured Jobs Section -->
  
     <div class="featured-jobs-section">
             <div id="featured-roles-card">
 
-            {{#each featuredRoles as |featuredRole|}}
-                <div class="featured-role-card">
-
-
+{{#each featuredRoles as |featuredRole|}}
+ <div class="featured-role-card">
 
   <a class = "job-title" href="/role/{{featuredRole.id}}">{{featuredRole.role_name}}</a>
-  
     <p class="company-name">{{featuredRole.company}}</p>
     <p class="salary">£{{featuredRole.salary}}</p>
     <p class="job-type">{{featuredRole.job_type}}</p>
@@ -140,9 +70,25 @@
 
     <!-- Job Details Section -->
     <div class="job-details-section">
-       <h3>Interview Tips.</h3>
-       
-        </div>
-</div>
+       <h4><ul>Interview Tips.</ul></h4>
+       <div class ="tips">
 
+        <h6>Below are links to resources about useful interview tips: </h6>
+
+
+
+<p><a href="https://nationalcareers.service.gov.uk/careers-advice/interview-advice">National Careers Service</a></p>
+<p><a href="https://shorturl.at/cdfEY">Harvard Business School </a></p>
+<p><a href="https://shorturl.at/dilQV">PROSPECTS - Job board </a></p>
+<p><a href="https://www.dol.gov/general/jobs/interview-tips">U.S. DOL</a></p>
+<p><a href="https://www.jobscan.co/blog/job-interview-tips/">JobScan</a></p>
+<p><a href="https://rb.gy/oxjqgm">Robert Walters</a></p>
+<p><a href="https://rb.gy/05e4mn">Experis - ManPower</a></p>
+<p><a href="https://rb.gy/jh37vb">Workable</a></p>
+<p><a href="https://rb.gy/woly62">LinkedIN-learning blog</a></p>
+
+
+
+
+</div>
 <script src="/js/quotesApi.js"></script>
