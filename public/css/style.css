@@ -8,12 +8,29 @@ body, html
 .site-header {
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Ensures vertical centering of all children */
+    align-items: center; 
     padding: 10px 20px; /* Reduced padding, adjust as needed */
     height: 100px; /* Set a fixed height */
     border-bottom: 3px solid #CCCCCC; /* Optional, remove if the shadow is enough */
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Soft grey shadow */
   
+}
+
+.searched-roles
+{
+    min-height: 500px;
+}
+
+
+.profile
+{
+margin-top: 1em;
+}
+
+
+.err_message
+{
+    text-align: center;
 }
 
 
@@ -34,6 +51,9 @@ body, html
 }
 
 .header-nav a{
+    display: block;
+    padding: 14px 16px;
+
     color: #0A1D2A;
     text-decoration: none;
     margin: 0 15px; /* Ensure margin does not cause overflow */
@@ -122,6 +142,45 @@ h4 {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
         border-radius: 8px; 
 }
+
+.container {
+    max-width: 400px;
+    margin: 100px auto; 
+    padding: 20px; 
+    background-color: #FFFFFF; 
+    border: 1px solid #fff;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        border-radius: 8px; 
+}
+
+
+
+.roles_container
+{
+    max-width: 400px;
+    margin: 100px auto; 
+    border-radius: 8px;
+ }
+
+
+
+ #searched-roles-card {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3em;
+
+}
+
+.searched-role-card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+}
+
+
 
 #specific-container {
     max-width: 72%;
@@ -237,6 +296,10 @@ a {
 
 a:hover {
     text-decoration: none; 
+
+
+
+
 }
 .site-footer {
     margin-top: 50px; /* Adds space between the main content and footer */
@@ -244,6 +307,7 @@ a:hover {
     color: #fff; /* White text color */
     padding: 20px; /* Padding around the footer */
     font-family: 'Be Vietnam Pro', sans-serif; /* Consistent font usage */
+    width: 100%; /* Full width */
 }
 
 .footer-top {
@@ -667,6 +731,23 @@ width: 100%;
     margin-bottom: 40px;
 }
 
+
+.mobile-links {
+    display: none;
+    background-color: #063542;
+    color: #0A1D2A;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.mobile-links .mobile-link {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+
 /* Media Queries */
 
 /* Responsive adjustments */
@@ -687,7 +768,7 @@ width: 100%;
 
 
 
-@media (max-width: 600px) {
+@media (max-width: 750px) {
     .footer-bottom {
         flex-direction: column;
         text-align: center;
@@ -697,12 +778,16 @@ width: 100%;
     .header-nav {
         display: none; 
         text-align: center; 
+        
     }
 
     .header-nav a {
         display: block; /* Ensure each link takes up full width */
         margin-bottom: 10px; /* Add space between each link */
+        float: right;
     }
+
+    
 
     .logo-link {
         text-align: center; /* Center-align the logo */
@@ -774,6 +859,31 @@ width: 100%;
         margin-top: 10px; 
     }
 
+      /* Show mobile links and hide header nav */
+      .header-nav {
+        display: none;
+    }
+
+    .mobile-menu-icon {
+        display: block;
+        flex: 1;
+        text-align: center;
+    }
+
+    .mobile-links {
+        display: block;
+    }
+
+    .mobile-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 15%; /* Adjust the starting point of the line */
+        width: 100%; /* Adjust the width of the line */
+        height: 1px; /* Line thickness */
+        background-color: #fff; /* Line color */
+    }
+    
     
 
     }
