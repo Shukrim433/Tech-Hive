@@ -13,8 +13,9 @@ body, html
     height: 100px; /* Set a fixed height */
     border-bottom: 3px solid #CCCCCC; /* Optional, remove if the shadow is enough */
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Soft grey shadow */
-    margin-bottom: 30px;
+  
 }
+
 
 
 .header-nav, .auth-buttons {
@@ -28,7 +29,9 @@ body, html
     gap: 60px;
 
 }
-
+.handlebars-menu {
+    display: none; /* Hide by default */
+}
 
 .header-nav a{
     color: #0A1D2A;
@@ -102,7 +105,7 @@ h2 {
 
 
 /* Style headings */
-h3 {
+h4 {
     font-weight: 500;
     color: #224957;
     text-align: center; 
@@ -183,13 +186,13 @@ label {
 }
 
 #submitbtn {
-    font-size: 13px;
+    font-size: 12px;
     margin-top: 1em;
     background-color: #0A1D2A;
     color: #F9D40B;
     border: none;
-    padding: 7px ;
-    border-radius: 12px; 
+    padding: 12px 18px ;
+    border-radius: 20px; 
     cursor: pointer;
     transition: background-color 0.3s; 
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -455,7 +458,7 @@ a:hover {
     border-radius: 10px;
     border: 1px solid #567e98; /* Dark blue border */
     flex: 2;
-    max-width: 15%; /* Controls width of the job details section */
+    max-width: 20%; /* Controls width of the job details section */
 }
 
 
@@ -466,7 +469,7 @@ a:hover {
 /* Featured Jobs Section */
 .featured-jobs-section {
     flex: 3;
-    max-width: 40%; /* Controls width of the main job listing area */
+    max-width: 60%; /* Controls width of the main job listing area */
     display: flex;
     flex-direction: column;
 
@@ -477,7 +480,22 @@ a:hover {
     flex-wrap: wrap;
     justify-content: space-between;
 
+
+
 }
+
+
+.job-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.job-info p {
+    margin: 0;
+}
+
+
 .featured-role-card {
     
     display: flex;
@@ -537,6 +555,45 @@ a:hover {
     margin: 0 10px; 
     white-space: nowrap; 
 }
+.job-details-section ul {
+    list-style-type: none; /* Remove default bullet */
+    padding-left: 0; /* Remove default padding */
+}
+
+.job-details-section a {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Align items vertically */
+}
+
+.job-details-section a:before {
+    content: '💻'; /* Unicode for the 💻 emoji */
+    margin-right: 0.5em; /* Space between emoji and text */
+}
+
+.job-details-section a {
+    color: #333; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+.job-details-section a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+
+.job-details-section h6 {
+    color: #357ABD; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+
+
+.job-title, .company-name, .job-type, .salary, .location {
+    flex: 1; 
+    text-align: center; 
+    margin: 0 10px; 
+    white-space: nowrap;
+}
+
 
 
 .company-name
@@ -550,14 +607,41 @@ a:hover {
     margin-top: 60px;
 }
 
-.all-role-card{
-    margin-bottom: 20px;
-    border: 1px solid #ccc; 
-    border-radius: 10px;
+
+.text-center
+{
+    margin-top: 20px;
+}
+
+.selected-role-card
+{
     padding: 20px;
     box-sizing: border-box;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    gap: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+margin-top: 5em;
+margin-bottom: 4em;
+width: 100%;
+}
+
+.all-role-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Distribute items evenly */
+}
+
+
+
+
+.all-role-card {
+
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    padding: 2%; /* Use percentage for padding */
+    box-sizing: border-box;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    gap: 2%; /* Use percentage for gap */
+    width: 100%; /* Use percentage for width */
 }
 
 .company, .job, .sal, .loc, .dec, .cat {
@@ -599,26 +683,94 @@ a:hover {
 
 
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     .footer-bottom {
         flex-direction: column;
         text-align: center;
     }
 
-    .address {
-        margin-top: 10px;
+
+    .header-nav {
+        display: none; 
+        text-align: center; 
     }
 
-    .job_container {
-        flex-direction: column;
+    .header-nav a {
+        display: block; /* Ensure each link takes up full width */
+        margin-bottom: 10px; /* Add space between each link */
     }
-    .filter-section, .featured-jobs-section, .job-details-section {
+
+    .logo-link {
+        text-align: center; /* Center-align the logo */
+        margin-bottom: 10px; /* Add some space below the logo */
+    }
+
+    .handlebars-menu {
+        text-align: center; 
+    }
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header.show-nav .header-nav {
+        display: block;
+    }
+
+    .auth-buttons {
+        text-align: center; 
+    }
+
+
+
+
+
+
+    
+
+      .featured-role-card {
+        text-align: center;
+    }
+
+
+
+
+    .job-title {
+        margin: 0 auto; /* Center the job title */
+    }
+
+      .company-name, .job-type, .salary, .location {
+        display: none;
+    }
+
+
+
+    .search-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-div {
         width: 100%;
+        max-width: 300px;
     }
 
-    .featured-role-card {
-        flex-direction: column;
-        align-items: flex-start;
+    .search-div input[type="text"], .search-div select {
+        width: 100%;
+        max-width: 300px; 
+        margin: 5px 0;
     }
-}
+
+    .search-div input[type="submit"] {
+        width: 100%; 
+        max-width: 600px; 
+        margin-top: 10px; 
+    }
+
+    
+
+    }
 

@@ -17,23 +17,24 @@
 
 <header class="site-header">
     <nav class="header-nav">
+        <!-- Home, Profile, and Jobs links -->
         <a href="/"> Home </a>
         <a href="/profile"> Profile </a>
-        <a href="/role-nav"> Jobs  </a>
+        <a href="/role-nav"> Jobs </a>
     </nav>
-    <a href="/" class="logo-link">
+    <div class="logo-link">
         <img src="/images/logo1.png" alt="Logo" class="header-logo">
-    </a>
+    </div>
     <div class="auth-buttons">
-      {{#if logged_in}}
-      <button class="login-button" id="logout">Logout</button>
-      {{else}}
-        <button class="login-button" onclick="location.href='/login';">Login</button>
-        <button class="login-button" onclick="location.href='/signup';">Sign Up</button>
-      {{/if}}
+        <!-- Login and Sign Up buttons -->
+        {{#if logged_in}}
+            <button class="login-button" id="logout">Logout</button>
+        {{else}}
+            <button class="login-button" onclick="location.href='/login';">Login</button>
+            <button class="login-button" onclick="location.href='/signup';">Sign Up</button>
+        {{/if}}
     </div>
 </header>
-
 
     <main>
       {{{ body }}}
