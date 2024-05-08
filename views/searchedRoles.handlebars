@@ -1,4 +1,4 @@
-
+<div class="searched-roles">
 <div class="search-container">
     <div class="search-div">
         <form action="/search-results">
@@ -33,21 +33,22 @@
 
 
 <div class="searched-roles-section">
-    <div class="container" id = "searched-container">
+    <div class="roles_container" id = "searched-container">
     <div id="searched-roles-card">
         {{#if searchedRoles.length}}
         {{#each searchedRoles as |searchedRole|}}
         <div class="searched-role-card">
             <a class = "job-title" href="/role/{{searchedRole.id}}">{{searchedRole.role_name}}</a>
-            <p class="company-name">{{searchedRole.company}}</p>
-            <p class="salary">£{{formatNumberWithCommas searchedRole.salary}} per annum</p>
-            <p class="job-type">{{searchedRole.job_type}}</p>
-            <p class="location">{{searchedRole.location.location_name}}</p>
+            <p class="company-name">Company Name: {{searchedRole.company}}</p>
+            <p class="salary">Salary: £{{formatNumberWithCommas searchedRole.salary}} per annum</p>
+            <p class="job-type">Job Type: {{searchedRole.job_type}}</p>
+            <p class="location">Location: {{searchedRole.location.location_name}}</p>
         </div>
     {{/each}}
     {{else}}
-    <p>Oops, looks like we coundn't find any jobs to match your search, please try again!</p>
+    <p class="err_message">Oops, looks like we coundn't find any jobs to match your search, please try again!</p>
     {{/if}}
     </div>
     </div>
+</div>
 </div>
