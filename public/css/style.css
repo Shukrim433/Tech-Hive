@@ -217,10 +217,12 @@ label {
 
 .deleteAppBtn {
     width: 30%;
+    display: inline-block;
 }
 
 .deleteSavedRoleBtn {
     width: 30%;
+    display: inline block;
 }
 
 a {
@@ -532,11 +534,12 @@ a:hover {
 
 .personal-info h1 {
     margin-bottom: 20px;
+    margin-top: 25px;
 }
 .profile-info {
     display: inline-block;
     margin-top: 10px;
-    border: 1px solid #567e98;
+    border: 1px solid #fafdff;
     border-radius: 10px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border-radius: 8px; 
@@ -774,3 +777,16 @@ width: 100%;
 
     }
 
+@media (max-width: 475px) {
+
+    .deleteSavedRoleBtn {
+        font-size: 11px;
+        padding: 8px 16px;
+    }
+
+    .deleteAppBtn {
+        font-size: 11px;
+        padding: 8px 16px;
+    }   
+
+}
