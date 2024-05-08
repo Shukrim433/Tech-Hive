@@ -16,10 +16,17 @@
 <body>
 
 <header class="site-header">
+
  <div class="logo-link">
         <a href = "/"> <img src="/images/logo1.png" alt="Logo" class="header-logo"></a>
     </div>
-    <nav class="header-nav">
+  
+
+
+
+
+  
+    <ul nav class="header-nav">
         <!-- Home, Profile, and Jobs links -->
         <a href="/"><li>Home</li></a>
         <a href="/profile"> <li>Profile </li></a>
@@ -30,11 +37,12 @@
         {{#if logged_in}}
             <button class="login-button" id="logout">Logout</button>
         {{else}}
-            <button class="login-button" onclick="location.href='/login';"><li>Login</li></button>
-            <button class="login-button" onclick="location.href='/signup';"><li>Sign Up</li></button>
+            <button class="login-button" onclick="location.href='/login';">Login</button>
+            <button class="login-button" onclick="location.href='/signup';">Sign Up</button>
         {{/if}}
     </div>
 </header>
+
 
 
 
@@ -55,7 +63,7 @@
             <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a>
             <a href="https://instagram.com" target="_blank"><i class="fa fa-instagram"></i></a>
             <a href="https://linkedin.com" target="_blank"><i class="fa fa-linkedin"></i></a>
-            <a href="https://github.com" target="_blank"><i class="fa fa-github"></i></a>
+            <a href="https://github.com/Shukrim433/Work-Hive" target="_blank"><i class="fa fa-github"></i></a>
         </div>
     </div>
      <div class="footer-bottom">

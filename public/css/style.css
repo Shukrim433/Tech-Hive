@@ -38,13 +38,22 @@ margin-top: 1em;
 .header-nav, .auth-buttons {
     display: flex;
     align-items: center;
+      list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
 }
 
 
 .header-nav{
     margin: 0 auto; /* Centers the navigation in the available space */
     gap: 60px;
+    list-style-type: none;
+    padding: 0;
+    display: flex;
 
+
+    
 }
 .handlebars-menu {
     display: none; /* Hide by default */
