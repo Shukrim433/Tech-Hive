@@ -59,7 +59,7 @@
 
   <a class = "job-title" href="/role/{{featuredRole.id}}">{{featuredRole.role_name}}</a>
     <p class="company-name">{{featuredRole.company}}</p>
-    <p class="salary">£{{featuredRole.salary}}</p>
+    <p class="salary">£{{formatNumberWithCommas featuredRole.salary}}</p>
     <p class="job-type">{{featuredRole.job_type}}</p>
     <p class="location"><i class="fas fa-map-marker-alt"></i> {{featuredRole.location.location_name}}</p>
 </div>
