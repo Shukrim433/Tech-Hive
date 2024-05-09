@@ -54,13 +54,10 @@
     <div class="featured-jobs-section">
             <div id="featured-roles-card">
 
-            {{#each featuredRoles as |featuredRole|}}
-                <div class="featured-role-card">
-
-
+{{#each featuredRoles as |featuredRole|}}
+ <div class="featured-role-card">
 
   <a class = "job-title" href="/role/{{featuredRole.id}}">{{featuredRole.role_name}}</a>
-  
     <p class="company-name">{{featuredRole.company}}</p>
     <p class="salary">£{{featuredRole.salary}}</p>
     <p class="job-type">{{featuredRole.job_type}}</p>
@@ -76,7 +73,7 @@
        <h4><ul>Interview Tips.</ul></h4>
        <div class ="tips">
 
-        <h6>Below are links to resources about useful interview tips: </>
+        <h6>Below are links to resources about useful interview tips: </h6>
 
 
 
