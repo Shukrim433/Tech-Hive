@@ -5,16 +5,7 @@ body, html
     padding: 0;
 }
 
-.site-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center; 
-    padding: 10px 20px; /* Reduced padding, adjust as needed */
-    height: 100px; /* Set a fixed height */
-    border-bottom: 3px solid #CCCCCC; /* Optional, remove if the shadow is enough */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Soft grey shadow */
-  
-}
+
 
 .searched-roles
 {
@@ -34,74 +25,6 @@ margin-top: 1em;
 }
 
 
-
-.header-nav, .auth-buttons {
-    display: flex;
-    align-items: center;
-      list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-}
-
-
-.header-nav{
-    margin: 0 auto; /* Centers the navigation in the available space */
-    gap: 60px;
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-
-
-    
-}
-.handlebars-menu {
-    display: none; /* Hide by default */
-}
-
-.header-nav a{
-    display: block;
-    padding: 14px 16px;
-
-    color: #0A1D2A;
-    text-decoration: none;
-    margin: 0 15px; /* Ensure margin does not cause overflow */
-    font-size: 16px; /* Adjust font size if necessary */
-
-}
-
-.auth-buttons {
-    position: absolute;
-    right: 20px;
-}
-
-
-.auth-buttons button {
-    padding: 8px 12px; /* Adjust padding to ensure it fits within the header */
-    margin: 0 5px; /* Reduced margin */
-    font-size: 14px; /* Ensuring text fits within buttons */
-}
-
-.logo-link {
-    position: absolute;
-    left: 20px; /* Positions logo to the far left */
-    display: flex;
-    align-items: center;
-}
-
-.logo-link img {
-    height: auto; /* Maintain aspect ratio */
-    width: 150px; /* Adjust width to fit within the header */
-}
-
-
-.header-content {
-    display: flex;
-    justify-content: space-between; 
-    align-items: center; 
-    padding: 0 20px; 
-}
-
 .login-button {
     padding: 8px 16px;
     background-color: #0A1D2A; 
@@ -118,11 +41,135 @@ margin-top: 1em;
     font-weight: bold;
 }
 
-.header-logo {
-    height: 120px; /* Adjust based on your preference */
-    width: auto;
-    display: block;
+
+
+
+nav {
+padding: 10px 20px; /* Reduced padding, adjust as needed */
+height: 100px; /* Set a fixed height */
+display: flex;
+justify-content: space-between;
+align-items: center;
+height: 100px; /* Set a fixed height */
+
+  z-index: 1;
+  position: relative;
+  height: 80px; /* Adjust as needed */
 }
+
+
+
+nav .logo {
+    display: flex;
+    align-items: center;
+  }
+
+
+  nav .logo img {
+    height: 50px;
+    width: auto;
+    margin-right: 10px;
+  }
+  
+
+  nav ul {
+    list-style: none;
+    display: flex;
+  }
+  nav ul li {
+    margin-left: 1.5rem;
+  }
+  nav ul li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 95%;
+    font-weight: 400;
+    padding: 4px 8px;
+    border-radius: 5px;
+  }
+
+
+  .hamburger {
+    display: none;
+    cursor: pointer;
+  }
+  
+  .hamburger .line {
+    width: 25px;
+    height: 2px;
+    background-color: #1f1f1f;
+    display: block;
+    margin: 7px auto;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .hamburger-active {
+    transition: all 0.3s ease-in-out;
+    transition-delay: 0.6s;
+    transform: rotate(45deg);
+  }
+
+
+  .hamburger-active .line:nth-child(2) {
+    width: 0px;
+  }
+  
+  .hamburger-active .line:nth-child(1),
+  .hamburger-active .line:nth-child(3) {
+    transition-delay: 0.3s;
+  }
+  
+  .hamburger-active .line:nth-child(1) {
+    transform: translateY(12px);
+  }
+  
+  .hamburger-active .line:nth-child(3) {
+    transform: translateY(-5px) rotate(90deg);
+  }
+
+  .menubar {
+    position: absolute;
+    top: 0;
+    left: -60%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 40%;
+    height: 100vh;
+    padding: 20% 0;
+    background: rgba(255, 255, 255);
+    transition: all 0.7s ease-in;
+    z-index: 2;
+  }
+  .active {
+    left: 0;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+
+  
+
+  .menubar ul {
+    padding: 0;
+    list-style: none;
+  }
+  .menubar ul li {
+    margin-bottom: 32px;
+  }
+  
+  .menubar ul li a {
+    text-decoration: none;
+    color: #0A1D2A;
+    font-size: 95%;
+    font-weight: 400;
+    padding: 8px 16px;
+    border-radius: 5px;
+  }
+  
+  .menubar ul li a:hover {
+    background-color: #f5f5f5;
+
+  }
+
 
 /* Style headings */
 h2 {
@@ -773,12 +820,26 @@ width: 100%;
 
 
 
-@media (max-width: 750px) {
-    .footer-bottom {
-        flex-direction: column;
-        text-align: center;
-    }
+@media (max-width: 850px) {
+   .footer-bottom {
+    text-align: center; /* Center-align the text */
+    padding-top: 20px; /* Space above the text */
+    font-size: 10px; /* Smaller font size for copyright */
+}
 
+    .hamburger {
+        display: block;
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      .login-button
+      {
+        display: none;
+      }
+    
 
     .header-nav {
         display: none; 
@@ -799,10 +860,7 @@ width: 100%;
         margin-bottom: 10px; /* Add some space below the logo */
     }
 
-    .handlebars-menu {
-        text-align: center; 
-    }
-
+ 
     .header {
         display: flex;
         flex-direction: column;
@@ -816,13 +874,6 @@ width: 100%;
     .auth-buttons {
         text-align: center; 
     }
-
-
-
-
-
-
-    
 
       .featured-role-card {
         text-align: center;
@@ -838,8 +889,6 @@ width: 100%;
       .company-name, .job-type, .salary, .location {
         display: none;
     }
-
-
 
     .search-container {
         display: flex;
@@ -864,32 +913,7 @@ width: 100%;
         margin-top: 10px; 
     }
 
-      /* Show mobile links and hide header nav */
-      .header-nav {
-        display: none;
-    }
-
-    .mobile-menu-icon {
-        display: block;
-        flex: 1;
-        text-align: center;
-    }
-
-    .mobile-links {
-        display: block;
-    }
-
-    .mobile-link::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 15%; /* Adjust the starting point of the line */
-        width: 100%; /* Adjust the width of the line */
-        height: 1px; /* Line thickness */
-        background-color: #fff; /* Line color */
     }
     
-    
 
-    }
 
