@@ -16,33 +16,26 @@
 <body>
 
 <header class="site-header">
- <div class="logo-link">
-        <a href = "/"> <img src="/images/logo1.png" alt="Logo" class="header-logo"></a>
-    </div>
     <nav class="header-nav">
         <!-- Home, Profile, and Jobs links -->
-        <a href="/"><li>Home</li></a>
-        <a href="/profile"> <li>Profile </li></a>
-        <a href="/role-nav"> <li>Jobs</li> </a>
+        <a href="/"> Home </a>
+        <a href="/profile"> Profile </a>
+        <a href="/role-nav"> Jobs </a>
     </nav>
+    <div class="logo-link">
+        <img src="/images/logo1.png" alt="Logo" class="header-logo">
+    </div>
     <div class="auth-buttons">
         <!-- Login and Sign Up buttons -->
         {{#if logged_in}}
             <button class="login-button" id="logout">Logout</button>
         {{else}}
-            <button class="login-button" onclick="location.href='/login';"><li>Login</li></button>
-            <button class="login-button" onclick="location.href='/signup';"><li>Sign Up</li></button>
+            <button class="login-button" onclick="location.href='/login';">Login</button>
+            <button class="login-button" onclick="location.href='/signup';">Sign Up</button>
         {{/if}}
     </div>
 </header>
 
-
-
-<div class="mobile-links">
-    <a href="/" class="mobile-link">Home</a>
-    <a href="/profile" class="mobile-link">Profile</a>
-    <a href="/role-nav" class="mobile-link">Jobs</a>
-</div>
     <main>
       {{{ body }}}
     </main>
