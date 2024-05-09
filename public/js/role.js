@@ -24,5 +24,6 @@ const saveBtnHandler = async (event) => {
 };
 
 document
-  .querySelector('#savebtn')//**
-  .addEventListener('click', saveBtnHandler);
+  .querySelectorAll('.savebtn').forEach((button) => {
+    button.addEventListener('click', saveBtnHandler);
+  }) 
