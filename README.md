@@ -10,6 +10,7 @@ The aim of this project is to collaboratively create a full stack application th
 * [Technical Criteria](#technical-criteria)
 * [Usage](#usage)
 * [Built With](#built-with)
+* [Images](#images)
 * [Contributors](#contributors)
 * [Links](#links)
 
@@ -61,6 +62,20 @@ The aim of this project is to collaboratively create a full stack application th
 * MVC architecture
 * PostgreSQL
 
+## Images
+
+**Image of homepage**
+
+<img width="1437" alt="Screenshot 2024-05-16 at 21 52 26" src="https://github.com/Shukrim433/Tech-Hive/assets/156595423/fef0e880-8b37-4eb7-9aba-7bbeb027eca6">
+
+**Image of 'Role' list page**
+
+<img width="1435" alt="Screenshot 2024-05-16 at 21 53 18" src="https://github.com/Shukrim433/Tech-Hive/assets/156595423/579b104c-552b-4d88-9f70-157689b675b0">
+
+**Image of user profile**
+
+<img width="719" alt="Screenshot 2024-05-16 at 21 53 05" src="https://github.com/Shukrim433/Tech-Hive/assets/156595423/88fdec06-f6ba-4e84-863f-c1cf088f96b4">
+
 
 ## Contributors 
 
@@ -76,5 +91,5 @@ This project had the following contributors:
 
 ## Links 
 
-Link to deployed application - 
+Link to deployed application - https://tech-hive-6gct.onrender.com
 
