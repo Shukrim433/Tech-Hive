@@ -46,7 +46,7 @@
             <li><a href="/profile">Profile</a></li>
             <li><a href="/role-nav">Jobs</a></li>
          {{#if logged_in}} 
-            <li><a href ="/logout">Logout</a></li>
+            <li><a id="logout">Logout</a></li> {{!-- changed from href=/logout to id=logout for logout script to work --}}
             {{else}}
             <li><a href="/login">Login</a></li>
             <li><a href="/signup">Sign Up</a></li>
@@ -89,10 +89,12 @@
     mobileNav.addEventListener("click", () => toggleNav());
   </script>
 
+
   <!-- Render logout button script for logged in users only -->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
+
 </body>
 
 </html>
