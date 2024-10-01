@@ -91,5 +91,5 @@ This project had the following contributors:
 
 ## Links 
 
-Link to deployed application - [https://tech-hive-6gct.onrender.com](https://tech-hive-site.onrender.com/)
+Link to deployed application -  https://tech-hive-3.onrender.com/
 
